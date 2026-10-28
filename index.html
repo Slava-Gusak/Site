@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slava_Gusak</title>
+    <meta name="description" content="Slava_Gusak — музыка, программы и фото. Контакт: contact@slava-gusak.ru">
+    <meta property="og:title" content="Slava_Gusak">
+    <meta property="og:description" content="Музыка, программы и фото">
+    <meta property="og:image" content="https://slava-gusak.ru/img/me.jpg">
+    <meta name="theme-color" content="#030d08">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="preload" as="image" href="img/me.avif" fetchpriority="high">
+    <style>
+        html { overscroll-behavior:none; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+            color:#e0e0e0; min-height:100vh; overflow-x:hidden;
+            position:relative; overscroll-behavior:none;
+            background:linear-gradient(135deg,rgb(3,14,8) 0%,rgb(8,22,13) 50%,rgb(2,10,5) 100%) fixed #030d08;
+        }
+        body::before {
+            content:''; position:fixed; inset:0; z-index:0;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-size:200px 200px; opacity:0.04; pointer-events:none;
+        }
+        body::after {
+            content:''; position:fixed; inset:0; z-index:0;
+            background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.5) 100%);
+            pointer-events:none;
+        }
+        .glow-orb { position:fixed; border-radius:50%; filter:blur(90px); opacity:0; pointer-events:none; z-index:0; animation:orbIn 2s ease forwards; }
+        @keyframes orbIn { to{opacity:1} }
+        .glow-orb-1 { width:clamp(260px,55vw,550px); height:clamp(260px,55vw,550px); top:-120px; right:-100px; background:rgba(20,90,50,0.4); }
+        .glow-orb-2 { width:clamp(210px,45vw,450px); height:clamp(210px,45vw,450px); bottom:-100px; left:-80px; background:rgba(10,60,35,0.35); }
+        @media (max-width:768px) {
+            .glow-orb { filter:blur(90px) brightness(0.5); }
+        }
+        .container { max-width:850px; margin:0 auto; padding:40px 20px; position:relative; z-index:1; }
+
+        /* КНОПКИ */
+        .lang-btn {
+            position:fixed; top:64px; right:20px; z-index:100;
+            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
+            color:#fff; width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
+            font-size:0.85em; font-weight:300; letter-spacing:1px;
+            transition:all 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
+            box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
+        }
+        .lang-btn:hover { border-color:rgba(255,255,255,0.2); transform:scale(1.05); background:rgba(255,255,255,0.12); }
+        .menu-btn {
+            position:fixed; top:20px; right:20px; z-index:100;
+            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
+            width:60px; height:36px; border-radius:15px; cursor:pointer;
+            display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+            transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+            box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
+        }
+        .menu-btn:hover { border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.12); transform:scale(1.05); }
+        .menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
+        .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+        .menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+        .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+        .menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:98; opacity:0; visibility:hidden; transition:all 0.3s ease; }
+        .menu-overlay.active { opacity:1; visibility:visible; }
+        .menu {
+            position:fixed; top:-100%; left:0; width:100%;
+            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            background:rgba(3,12,6,0.92); border-bottom:1px solid rgba(255,255,255,0.08);
+            box-shadow:0 8px 32px rgba(0,0,0,0.5); z-index:99;
+            transition:top 0.4s cubic-bezier(0.4,0,0.2,1); padding:28px 40px 30px;
+        }
+        .menu.active { top:0; }
+        .menu-items { list-style:none; display:flex; justify-content:center; align-items:center; gap:60px; }
+        .menu-items a { font-size:1.4em; font-weight:300; letter-spacing:3px; color:#c8c8c8; text-decoration:none; text-transform:uppercase; transition:color 0.3s ease; position:relative; }
+        .menu-items a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:rgba(255,255,255,0.4); transition:width 0.3s ease; }
+        .menu-items a:hover { color:#fff; }
+        .menu-items a:hover::after { width:100%; }
+        .menu-items a.active { color:#fff; }
+        .menu-items a.active::after { width:100%; background:rgba(255,255,255,0.6); }
+
+        @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+        header { text-align:center; padding:100px 20px 70px; animation:fadeSlideDown 1s ease forwards; }
+        h1 { font-size:4em; font-weight:200; letter-spacing:8px; margin-bottom:16px; background:linear-gradient(135deg,#ffffff 0%,rgba(180,255,210,0.65) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .subtitle { font-size:1.15em; color:rgba(120,220,160,0.4); font-weight:300; letter-spacing:3px; text-transform:uppercase; }
+        .divider { width:50%; height:1px; background:linear-gradient(90deg,transparent,rgba(80,180,120,0.2),transparent); margin:0 auto 70px; }
+
+        .about-card { position:relative; text-align:center; padding:20px 20px 60px; animation:fadeSlideUp 1s 0.3s ease both; }
+        .about-card-inner { position:relative; z-index:1; }
+        .card-accent-bar { width:50px; height:1px; border-radius:2px; margin:28px auto 32px; background:linear-gradient(90deg,rgba(80,200,130,0.85),transparent); }
+        .card-desc { font-size:1em; color:rgba(255,255,255,0.32); font-weight:300; letter-spacing:1px; line-height:1.7; }
+        .photo-wrap { width:240px; height:240px; margin:0 auto 32px; border-radius:50%; padding:3px; background:linear-gradient(135deg,rgba(120,240,160,0.55),rgba(20,90,50,0.15)); box-shadow:0 0 60px rgba(60,200,110,0.25),0 12px 40px rgba(0,0,0,0.5); }
+        .photo { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; background:#0a2a16; }
+        .links { display:flex; justify-content:center; flex-wrap:wrap; gap:18px; margin:10px 0 0; }
+        .link-btn { display:inline-flex; align-items:center; justify-content:center; min-width:190px; gap:12px; padding:18px 36px; border:2px solid rgba(255,255,255,0.12); border-radius:60px; color:#c8c8c8; text-decoration:none; font-size:1em; font-weight:400; letter-spacing:1.5px; white-space:nowrap; transition:background 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease,color 0.3s ease,transform 0.3s ease; }
+        .link-btn svg { width:22px; height:22px; flex-shrink:0; opacity:0.8; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4)); transition:opacity 0.3s ease; }
+        .link-btn[data-platform=github]:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.45); box-shadow:0 0 22px rgba(255,255,255,0.12),0 6px 20px rgba(0,0,0,0.4); color:#fff; transform:translateY(-3px); }
+        .link-btn[data-platform=youtube]:hover { background:rgba(255,0,0,0.07); border-color:rgba(255,60,60,0.5); box-shadow:0 0 22px rgba(255,40,40,0.25),0 6px 20px rgba(255,0,0,0.2); color:#ff8a8a; transform:translateY(-3px); }
+        .link-btn:hover svg { opacity:1; }
+        .contact { margin-bottom:14px; color:rgba(255,255,255,0.32); }
+        .contact a { white-space:nowrap; color:rgba(150,240,185,0.85); text-decoration:none; border-bottom:1px solid rgba(150,240,185,0.3); transition:color 0.3s ease,border-color 0.3s ease; }
+        .contact a:hover { color:#fff; border-bottom-color:rgba(255,255,255,0.6); }
+
+        footer { text-align:center; padding:80px 20px 60px; color:rgba(255,255,255,0.2); font-size:0.82em; font-weight:300; letter-spacing:1px; }
+
+        .copyright { cursor:pointer; display:inline-block; transition:color 0.3s ease; user-select:none; position:relative; z-index:1; }
+        .copyright:hover { color:rgba(255,255,255,0.45); }
+        .hidden-socials { max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease,margin-top 0.5s ease; opacity:0; margin-top:0; }
+        .hidden-socials.show { max-height:100px; opacity:1; margin-top:30px; }
+        .hidden-socials.expanded { overflow:visible; }
+        .social-links-row { display:flex; gap:20px; justify-content:center; }
+        .social-link { display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); position:relative; will-change:transform; }
+        .social-link::before { content:''; position:absolute; inset:0; border-radius:50%; opacity:0; transition:opacity 0.4s ease; }
+        .social-link[data-social=twitter]::before { background:radial-gradient(circle,rgba(29,161,242,0.3),transparent 70%); }
+        .social-link[data-social=telegram]::before { background:radial-gradient(circle,rgba(0,136,204,0.3),transparent 70%); }
+        .social-link:hover::before { opacity:1; }
+        .social-link:hover { transform:translateY(-3px) scale(1.1); border-color:rgba(255,255,255,0.3); box-shadow:0 5px 20px rgba(0,0,0,0.4); }
+        .social-link svg { width:24px; height:24px; fill:#c8c8c8; transition:fill 0.3s ease; position:relative; z-index:1; }
+        .social-link:hover svg { fill:#fff; }
+        @media (max-width:768px) {
+            h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 50px}
+            .photo-wrap{width:180px;height:180px} .menu-items{flex-direction:column;gap:24px} .menu-items a{font-size:1.3em}
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb glow-orb-1" id="orb1"></div>
+    <div class="glow-orb glow-orb-2" id="orb2"></div>
+    <button class="lang-btn" id="langBtn" onclick="switchLanguage()">EN</button>
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <nav class="menu" id="mainMenu">
+        <ul class="menu-items">
+            <li><a href="/music/" data-ru="Музыка" data-en="Music">Музыка</a></li>
+            <li><a href="/" class="active" data-ru="Главная" data-en="Home">Главная</a></li>
+            <li><a href="/gallery/index.html" data-ru="Галерея" data-en="Gallery">Галерея</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Slava_Gusak</h1>
+            <p class="subtitle" data-ru="Обо мне" data-en="About me">Обо мне</p>
+        </header>
+        <div class="divider"></div>
+        <div class="about-card">
+            <div class="about-card-inner">
+                <div class="photo-wrap"><img class="photo" src="img/me.avif" alt="Slava_Gusak" width="240" height="240" fetchpriority="high" decoding="async"></div>
+                <div class="card-accent-bar"></div>
+                <p class="card-desc" data-ru="Короче, делаю всякие приколы в сфере музыки, программ и фоток." data-en="Basically, I make all kinds of fun stuff with music, software and photos.">Короче, делаю всякие приколы в сфере музыки, программ и фоток.</p>
+            </div>
+        </div>
+        <div class="links">
+            <a href="https://github.com/Slava-Gusak" class="link-btn" data-platform="github" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg> GitHub</a>
+            <a href="https://www.youtube.com/@slava_gusak_yup" class="link-btn" data-platform="youtube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg> YouTube</a>
+        </div>
+        <footer>
+            <p class="contact"><span data-ru="Для сотрудничества:" data-en="Business inquiries:">Для сотрудничества:</span> <a href="mailto:contact@slava-gusak.ru">contact@slava-gusak.ru</a></p>
+            <p class="copyright" onclick="toggleHiddenSocials()">© 2026 Slava_Gusak</p>
+            <div class="hidden-socials" id="hiddenSocials"><div class="social-links-row"><a href="https://twitter.com/GooseSvyatoslav" class="social-link" data-social="twitter" target="_blank" rel="noopener" title="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="https://t.me/Slava_Gusak" class="social-link" data-social="telegram" target="_blank" rel="noopener" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg></a></div></div>
+        </footer>
+    </div>
+    <script>
+        function toggleMenu(){document.getElementById('mainMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');document.getElementById('menuBtn').classList.toggle('open')}
+        let clickCount=0,clickTimer=null;
+        function toggleHiddenSocials(){if(++clickCount===3){const t=document.getElementById('hiddenSocials'),opening=!t.classList.contains('show');t.classList.toggle('show');if(opening){t.addEventListener('transitionend',function e(n){if(n.propertyName==='max-height'){t.classList.add('expanded');t.removeEventListener('transitionend',e)}})}else{t.classList.remove('expanded')}clickCount=0}clearTimeout(clickTimer);clickTimer=setTimeout(()=>{clickCount=0},1000)}
+        let currentLang='ru';
+        function switchLanguage(){const nl=currentLang==='ru'?'en':'ru';document.getElementById('langBtn').textContent=nl==='ru'?'EN':'RU';document.querySelectorAll('[data-ru][data-en]').forEach(el=>el.textContent=nl==='ru'?el.getAttribute('data-ru'):el.getAttribute('data-en'));currentLang=nl}
+    </script>
+</body>
+</html>
