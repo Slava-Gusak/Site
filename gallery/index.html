@@ -1,1 +1,1338 @@
-<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Slava_Gusak — Галерея</title> <link rel="icon" href="/favicon.ico?v=2" sizes="any"> <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml"> <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2"> <style>html{overscroll-behavior:none}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#e0e0e0;min-height:100vh;overflow-x:hidden;position:relative;overscroll-behavior:none;background:#1a1006}body::before{content:'';position:fixed;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");background-size:200px 200px;opacity:.04;pointer-events:none}body::after{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.5) 100%);pointer-events:none}.glow-orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:0;pointer-events:none;z-index:0}.glow-orb-1{width:clamp(260px,55vw,550px);height:clamp(260px,55vw,550px);top:-120px;right:-100px}.glow-orb-2{width:clamp(210px,45vw,450px);height:clamp(210px,45vw,450px);bottom:-100px;left:-80px}@media (max-width:768px){.glow-orb{filter:blur(90px) brightness(.5)}}.container{max-width:1000px;margin:0 auto;padding:40px 20px;position:relative;z-index:1}.lang-btn{position:fixed;top:64px;right:20px;z-index:100;backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.1);color:#fff;width:60px;height:36px;padding:0;border-radius:15px;cursor:pointer;font-size:.85em;font-weight:300;letter-spacing:1px;transition:all .3s cubic-bezier(.4,0,.2,1);text-transform:uppercase;box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07)}.lang-btn:hover{border-color:rgba(255,255,255,.2);transform:scale(1.05);background:rgba(255,255,255,.12)}.menu-btn{position:fixed;top:20px;right:20px;z-index:100;backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.1);width:60px;height:36px;padding:0;border-radius:15px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07)}.menu-btn:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.12);transform:scale(1.05)}.menu-btn span{width:20px;height:2px;background:#fff;border-radius:2px;transition:all .3s cubic-bezier(.4,0,.2,1);opacity:.85}.menu-btn.open span:first-child{transform:translateY(7px) rotate(45deg)}.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:98;opacity:0;visibility:hidden;transition:all .3s ease}.menu-overlay.active{opacity:1;visibility:visible}.menu{position:fixed;top:-100%;left:0;width:100%;backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);background:rgba(18,10,3,.92);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 8px 32px rgba(0,0,0,.5);z-index:99;transition:top .4s cubic-bezier(.4,0,.2,1);padding:28px 40px 30px}.menu.active{top:0}.menu-items{list-style:none;display:flex;justify-content:center;align-items:center;gap:60px}.menu-items a{font-size:1.4em;font-weight:300;letter-spacing:3px;color:#c8c8c8;text-decoration:none;text-transform:uppercase;transition:color .3s ease;position:relative}.menu-items a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:rgba(255,255,255,.4);transition:width .3s ease}.menu-items a:hover{color:#fff}.menu-items a:hover::after{width:100%}.menu-items a.active{color:#fff}.menu-items a.active::after{width:100%;background:rgba(255,255,255,.6)}.menu-item-with-sub{position:relative}.menu-item-soon{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px}.menu-item-with-sub>a.no-underline::after{display:none}.submenu-link.submenu-link{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:3px;font-size:.62em;letter-spacing:1.5px;color:#777;text-transform:uppercase;font-weight:300;line-height:1;white-space:nowrap;text-decoration:none;opacity:.65;transition:opacity .25s ease,color .25s ease}.submenu-link.submenu-link::after{display:none}.menu-item-with-sub:hover .submenu-link,.submenu-link:focus,.submenu-link:hover{opacity:1;color:#fff}.submenu-link.warren-link{display:none;pointer-events:none}.submenu-link.warren-link.revealed{display:block;pointer-events:auto;animation:warrenReveal .9s cubic-bezier(.2,0,.2,1) forwards}@keyframes warrenReveal{from{opacity:0;transform:translate(-50%,-6px)}to{opacity:.65;transform:translate(-50%,0)}}.warren-charging{animation:warrenShake .5s ease-in-out infinite}@keyframes warrenShake{0%,100%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,-2px)}80%{transform:translate(1px,2px)}}.warren-glow{position:absolute;inset:-14px;border-radius:16px;pointer-events:none;z-index:-1;opacity:0;background:radial-gradient(circle,rgba(255,180,90,.55),transparent 70%);filter:blur(6px);transition:opacity .1s linear}@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px)}35%{transform:translateX(6px)}55%{transform:translateX(-4px)}75%{transform:translateX(4px)}90%{transform:translateX(-2px)}}.shaking{animation:shake .4s ease}#mainMenu,#mainMenu *{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}@keyframes fadeSlideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}header{text-align:center;padding:100px 20px 60px;animation:fadeSlideDown 1s ease forwards}h1{font-size:4em;font-weight:200;letter-spacing:8px;margin-bottom:16px;background:linear-gradient(135deg,#fff 0,rgba(255,230,180,.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.subtitle{font-size:1.15em;color:rgba(255,200,120,.4);font-weight:300;letter-spacing:3px;text-transform:uppercase}.divider{width:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,180,80,.2),transparent);margin:0 auto 50px}.featured-wrap{display:flex;justify-content:center;margin-bottom:44px}.hint-label{text-align:center;font-size:.72em;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,190,90,.7);font-weight:300;margin-top:16px}.hint-label-wrap{display:flex;flex-direction:column;align-items:center}.featured-photo{border-radius:14px;overflow:hidden;cursor:pointer;display:block;aspect-ratio:0.706}.featured-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}.featured-photo:hover img{transform:scale(1.05)}#featureGlass{padding:30px;border-radius:26px;position:relative;display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,190,90,.3);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 70px rgba(255,160,50,.22),inset 0 1px 0 rgba(255,255,255,.1);animation:fadeSlideUp .6s ease both}#featureGlass .featured-photo{width:360px;border:1px solid rgba(255,200,120,.35);box-shadow:0 10px 30px rgba(0,0,0,.5)}@media (max-width:768px){#featureGlass{padding:22px}#featureGlass .featured-photo{width:230px}}.wave-masonry{display:flex;gap:14px;align-items:flex-start}.wave-col{flex:1;display:flex;flex-direction:column;gap:10px;min-width:0}.wave-col:nth-child(2){margin-top:22px}.wave-col:nth-child(3){margin-top:10px}.wave-item{border-radius:16px;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .15s ease-out,box-shadow .15s ease-out,filter .5s ease-out;position:relative}.wave-item img{width:100%;display:block}.wave-item .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 12px;background:linear-gradient(to top,rgba(10,6,2,.85),transparent);font-size:.82em;font-weight:300;letter-spacing:.5px;color:rgba(255,255,255,.9);opacity:0;transform:translateY(6px);transition:all .15s ease-out}@media (hover:hover) and (pointer:fine){.wave-item:hover{transform:scale(1.1);z-index:5;box-shadow:0 24px 55px rgba(0,0,0,.6)}.wave-item:hover .cap{opacity:1;transform:translateY(0)}.wave-masonry.is-hovering .wave-item:not(:hover){filter:blur(1.5px) brightness(.75) saturate(.85);transform:scale(.98)}}@media (max-width:768px){.wave-masonry{gap:10px;flex-wrap:wrap}.wave-col{gap:8px;flex:1 1 calc(50% - 5px);min-width:calc(50% - 5px)}.wave-col:nth-child(2){margin-top:14px}.wave-col:nth-child(3){margin-top:0}}.lightbox-overlay{position:fixed;inset:0;background:rgba(8,5,2,.88);backdrop-filter:blur(6px);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;padding:30px}.lightbox-overlay.active{opacity:1;visibility:visible}.lightbox-panel{display:flex;max-width:1000px;width:100%;max-height:85vh;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);transform:scale(.96);transition:transform .35s cubic-bezier(.4,0,.2,1),border-color .5s ease,box-shadow .5s ease}.lightbox-overlay.active .lightbox-panel{transform:scale(1)}.lightbox-panel.seen-glow{border-color:rgba(255,175,70,.55);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,160,50,.25),0 0 55px rgba(255,140,30,.28);animation:seenPanelPulse 3.2s ease-in-out infinite}@keyframes seenPanelPulse{0%,100%{box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,160,50,.22),0 0 45px rgba(255,140,30,.22)}50%{box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,170,70,.4),0 0 65px rgba(255,140,30,.38)}}.lightbox-photo{flex:none;width:fit-content;height:fit-content;max-width:65%;max-height:100%;background:0 0;display:flex;align-items:center;justify-content:center;min-width:0;align-self:center}.lightbox-photo img{display:block;max-width:100%;max-height:85vh;width:auto;height:auto;object-fit:contain;border-radius:20px 0 0 20px}.lightbox-photo{position:relative}.lightbox-photo.lb-animating{overflow:hidden}.lightbox-photo.lb-animating #lbImg{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover}.lightbox-photo .lb-ghost{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;pointer-events:none;z-index:1}#lbImg{transition:opacity .25s ease}#lbImg.lb-loading{opacity:.55}.lightbox-photo{touch-action:none}@media (hover:hover) and (pointer:fine){#lbImg{cursor:zoom-in}.lightbox-overlay.zoomed #lbImg{cursor:zoom-out}}.lightbox-overlay.zoom-clip .lightbox-photo{overflow:hidden}.lightbox-overlay.zoomed .lb-read-btn,.lightbox-overlay.zoomed .lightbox-mobile-btn,.lightbox-overlay.zoomed .lightbox-nav{opacity:0!important;pointer-events:none;transition:opacity .2s ease}.lightbox-info{flex:1;padding:44px 38px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.08);min-width:280px}.lightbox-seen-badge{display:none;align-items:center;gap:8px;width:fit-content;font-size:.68em;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,205,120,.95);white-space:nowrap;margin-bottom:14px}.lightbox-seen-badge.active{display:inline-flex;animation:seenBadgeFade .5s ease both}@keyframes seenBadgeFade{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}.seen-radar{position:relative;width:14px;height:14px;flex:none}.seen-radar-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#ffb43c;box-shadow:0 0 6px rgba(255,180,60,.9),0 0 2px #ffb43c}.seen-radar-ping{position:absolute;top:50%;left:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:rgba(255,180,60,.9);animation:seenRadarPing 2.2s cubic-bezier(0,0,.2,1) infinite}.seen-radar-ping2{animation-delay:1.1s}@keyframes seenRadarPing{0%{transform:scale(1);opacity:.75}100%,70%{transform:scale(4.6);opacity:0}}.lightbox-eyebrow{font-size:.72em;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:rgba(255,180,60,.75);margin-bottom:18px}.lightbox-title{font-size:1.7em;font-weight:200;letter-spacing:1px;color:rgba(255,255,255,.92);margin-bottom:20px;line-height:1.3}.lightbox-accent{width:40px;height:1px;background:linear-gradient(90deg,rgba(255,180,60,.85),transparent);margin-bottom:20px}.lightbox-story{font-size:.95em;color:rgba(255,255,255,.5);font-weight:300;line-height:1.8;letter-spacing:.3px}.lightbox-close{position:absolute;top:20px;right:24px;z-index:201;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease}.lightbox-close svg{width:18px;height:18px;stroke:#fff}.lightbox-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:201;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease}.lightbox-nav svg{width:20px;height:20px;stroke:#fff}.lightbox-nav:hover{background:rgba(255,190,90,.85);color:#1a1006}.lightbox-nav:hover svg{stroke:#1a1006}.lightbox-prev{left:10px}.lightbox-next{right:10px}@media (max-width:768px){.lightbox-overlay{padding:14px}.lightbox-panel{flex-direction:column;width:fit-content;height:fit-content;max-width:100%;max-height:100%;align-items:center;justify-content:center;background:0 0;border:none;box-shadow:none;position:relative;overflow:visible}.lightbox-panel.seen-glow{border:none;box-shadow:none;animation:none}.lightbox-photo{width:fit-content;height:fit-content;max-width:100%;max-height:100%;border-radius:16px;border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 30px rgba(0,0,0,.5);transition:filter .35s ease;position:relative}.lightbox-panel.seen-glow .lightbox-photo{border-color:rgba(255,175,70,.55);box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 1px rgba(255,160,50,.25),0 0 40px rgba(255,140,30,.28);animation:seenPanelPulse 3.2s ease-in-out infinite}.lightbox-photo img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:16px}.lightbox-panel.info-open .lightbox-photo{filter:blur(10px) brightness(.6)}.lightbox-close,.lightbox-mobile-btn,.lightbox-nav{border-radius:14px;backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.1);box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07)}.lightbox-close:active,.lightbox-mobile-btn:active,.lightbox-nav:active{transform:scale(.94);background:rgba(255,255,255,.14)}.lightbox-mobile-btn{position:absolute;bottom:14px;z-index:6;width:48px;height:40px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1)}.lightbox-mobile-btn svg{width:19px;height:19px;stroke:#fff;opacity:.9}.lightbox-info-btn{left:14px}.lightbox-fullscreen-btn{right:14px}.lightbox-nav{width:44px;height:40px;color:#fff;display:flex;align-items:center;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1)}.lightbox-nav svg{width:18px;height:18px;stroke:#fff;opacity:.9}.lightbox-close{width:44px;height:40px;color:#fff;display:flex;align-items:center;justify-content:center;transition:all .3s cubic-bezier(.4,0,.2,1)}.lightbox-close svg{width:18px;height:18px;stroke:#fff;opacity:.9}.lightbox-close:hover{transform:none}.lightbox-overlay.fs-mode .lightbox-close,.lightbox-overlay.fs-mode .lightbox-mobile-btn,.lightbox-overlay.fs-mode .lightbox-nav{opacity:0;pointer-events:none}.lightbox-info{position:fixed;left:0;right:0;bottom:0;width:100%;top:0;overflow:hidden;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;border:none;border-radius:0;padding:14px;background:0 0;pointer-events:none;z-index:204}.lightbox-info-sheet{width:min(78vw,380px);height:auto;max-height:100%;overflow-y:auto;border:1px solid rgba(255,190,90,.25);border-radius:20px;padding:24px 24px calc(24px + env(safe-area-inset-bottom));background:linear-gradient(160deg,rgba(45,25,6,.96) 0,rgba(22,12,2,.98) 100%);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);box-shadow:-10px 0 40px rgba(0,0,0,.5);transform:translateX(calc(100% + 14px));transition:transform .4s cubic-bezier(.4,0,.2,1),height .42s cubic-bezier(.4,0,.2,1);pointer-events:auto;display:flex;flex-direction:column;justify-content:center}.lightbox-info-sheet .lightbox-info-inner{transition:filter .15s ease}.lightbox-info-sheet.resizing .lightbox-info-inner{filter:blur(6px)}.lightbox-info.open{pointer-events:auto}.lightbox-info.open .lightbox-info-sheet{transform:translateX(0)}.lightbox-info-handle{display:none}.lightbox-nav{top:auto;bottom:16px;transform:none;z-index:203}.lightbox-prev{left:14px}.lightbox-next{right:14px}.lightbox-close{top:calc(14px + env(safe-area-inset-top));right:14px;z-index:203}}@media (min-width:769px){.lightbox-mobile-btn{display:none}}.lb-read-btn{position:absolute;bottom:14px;right:14px;z-index:7;width:44px;height:40px;padding:0;border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);background:rgba(20,12,4,.5);border:1px solid rgba(255,190,90,.5);animation:readPulse 2.8s ease-in-out infinite;transition:opacity .3s ease .25s,transform .3s ease .25s,background .25s ease}.lb-read-btn.gone{opacity:0;transform:scale(.8);pointer-events:none;animation:none;transition:opacity .2s ease,transform .2s ease}.lb-read-btn:hover{background:rgba(255,190,90,.2)}.lb-read-btn:active{transform:scale(.94)}.lb-read-btn.open{animation:none;box-shadow:0 4px 16px rgba(0,0,0,.35)}.lb-read-btn svg{width:19px;height:19px;stroke:rgba(255,205,120,0.95)}.lb-read-btn .ic-close,.lb-read-btn.open .ic-doc{display:none}.lb-read-btn.open .ic-close{display:block}@keyframes readPulse{0%,100%{box-shadow:0 4px 16px rgba(0,0,0,.35),0 0 10px rgba(255,160,50,.15)}50%{box-shadow:0 4px 16px rgba(0,0,0,.35),0 0 26px rgba(255,160,50,.45)}}.lightbox-overlay{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.lightbox-overlay img{-webkit-user-drag:none}.featured-wrap,.wave-masonry{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.featured-wrap img,.wave-masonry img{-webkit-user-drag:none}.lb-read-scroll{-webkit-user-select:text;user-select:text}.lightbox-overlay.fs-mode .lb-read-btn{opacity:0;pointer-events:none}.lb-read{position:absolute;inset:0;z-index:4;border-radius:inherit;overflow:hidden;background:rgba(12,7,2,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}.lb-read.open{opacity:1;visibility:visible}.lb-no-anim,.lb-no-anim *{transition:none!important;animation:none!important}.lb-read::after{content:'';position:absolute;left:0;right:0;bottom:0;height:96px;pointer-events:none;background:linear-gradient(to bottom,transparent,rgba(12,7,2,.96))}.lb-read-scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:34px 30px 84px;text-align:left;scrollbar-width:thin;scrollbar-color:rgba(255,190,90,0.4) transparent}.lb-read-scroll>*{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}.lb-read.open .lb-read-scroll>*{opacity:1;transform:none}.lb-read.open .lb-read-scroll>:nth-child(2){transition-delay:60ms}.lb-read.open .lb-read-scroll>:nth-child(3){transition-delay:0.12s}.lb-read.open .lb-read-scroll>:nth-child(n+4){transition-delay:0.18s}.lb-read-src{font-size:.68em;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,180,60,.85);margin-bottom:12px}.lb-read-title{font-size:1.45em;font-weight:300;line-height:1.25;color:#fff;margin-bottom:16px}.lb-read-lead{font-size:.95em;line-height:1.6;color:rgba(255,235,205,.92);padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(255,190,90,.2)}.lb-read-body p{font-size:.9em;line-height:1.7;font-weight:300;color:rgba(255,255,255,.78);margin-bottom:.8em}.lb-read-hl{color:#ffc46e;font-weight:400}.lb-read-author{text-align:right;font-style:italic;font-size:.85em;color:rgba(255,255,255,.6);margin-top:4px}@media (max-width:768px){.lb-read-btn{right:72px}.lb-read-scroll{padding:26px 20px 76px}.lb-read-title{font-size:1.25em}}footer{text-align:center;padding:80px 20px 60px;color:rgba(255,255,255,.45);font-size:.82em;font-weight:300;letter-spacing:1px}.copyright{cursor:pointer;display:inline-block;transition:color .3s ease;user-select:none}.copyright:hover{color:rgba(255,255,255,.7)}.hidden-socials{max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s ease,margin-top .5s ease}.hidden-socials.show{max-height:100px;opacity:1;margin-top:30px}.hidden-socials.expanded{overflow:visible}.social-links-row{display:flex;gap:20px;justify-content:center}.social-link{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;will-change:transform}.social-link::before{content:'';position:absolute;inset:0;border-radius:50%;opacity:0;transition:opacity .4s ease}.social-link[data-social=twitter]::before{background:radial-gradient(circle,rgba(29,161,242,.3),transparent 70%)}.social-link[data-social=telegram]::before{background:radial-gradient(circle,rgba(0,136,204,.3),transparent 70%)}.social-link:hover::before{opacity:1}.social-link:hover{transform:translateY(-3px) scale(1.1);border-color:rgba(255,255,255,.3);box-shadow:0 5px 20px rgba(0,0,0,.4)}.social-link svg{width:24px;height:24px;fill:#c8c8c8;transition:fill .3s ease;position:relative;z-index:1}.social-link:hover svg{fill:#fff}.bottom-glow{position:fixed;left:0;right:0;bottom:0;height:400px;pointer-events:none;z-index:0;opacity:0;transition:opacity 1s ease;background:linear-gradient(to bottom,transparent 0,rgba(60,30,4,.25) 30%,rgba(90,45,6,.5) 60%,rgba(120,60,8,.8) 100%)}body.gradient-active .bottom-glow{opacity:1}@media (max-width:768px){h1{font-size:2.8em;letter-spacing:4px}header{padding:70px 20px 40px}.menu-items{flex-direction:column;gap:24px}.menu-items a{font-size:1.3em}.submenu-link.submenu-link{font-size:.93em}.menu-item-with-sub{margin-bottom:14px}}</style> </head> <body> <div class="glow-orb glow-orb-1" id="orb1"></div> <div class="glow-orb glow-orb-2" id="orb2"></div> <div class="bottom-glow" aria-hidden="true"></div> <button class="lang-btn" id="langBtn" onclick="switchLanguage()">EN</button> <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Меню"><span></span><span></span><span></span></button> <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div> <nav class="menu" id="mainMenu"> <ul class="menu-items"> <li><a href="../music/" data-ru="Музыка" data-en="Music">Музыка</a></li> <li class="menu-item-with-sub menu-item-soon"> <a href="/" class="no-underline" id="homeLink" onclick='return event.detail||(location.href="/"),!1'><span class="warren-glow" id="warrenGlow"></span><span data-ru="Главная" data-en="Home">Главная</span></a> <a href="../warren/" class="submenu-link warren-link" id="warrenLink" data-ru="Дебри" data-en="Warren">Дебри</a> </li> <li><a href="index.html" class="active" data-ru="Галерея" data-en="Gallery">Галерея</a></li> </ul> </nav> <div class="container"> <header> <h1>Slava_Gusak</h1> <p class="subtitle" data-ru="Галерея" data-en="Gallery">Галерея</p> </header> <div class="divider"></div> <div class="featured-wrap"> <div class="hint-label-wrap"> <div id="featureGlass"> <div class="featured-photo" id="featuredPhotoGlass"></div> </div> <p class="hint-label" data-ru="Нажми на фото, чтобы приблизить" data-en="Click a photo to zoom in">Нажми на фото, чтобы приблизить</p> </div> </div> <div class="wave-masonry" id="waveGrid"></div> <footer> <p class="copyright" onclick="toggleHiddenSocials()">© 2026 Slava_Gusak</p> <div class="hidden-socials" id="hiddenSocials"> <div class="social-links-row"> <a href="https://twitter.com/GooseSvyatoslav" class="social-link" data-social="twitter" target="_blank" rel="noopener" title="Twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a> <a href="https://t.me/Slava_Gusak" class="social-link" data-social="telegram" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg></a> </div> </div> </footer> </div> <div class="lightbox-overlay" id="lightbox"> <button class="lightbox-close" onclick="event.stopPropagation(),closeLightbox()"> <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg> </button> <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(),navLightbox(-1)"> <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"/></svg> </button> <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(),navLightbox(1)"> <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"/></svg> </button> <div class="lightbox-panel" onclick="event.stopPropagation()"> <div class="lightbox-photo" id="lbPhotoWrap"> <img id="lbImg" src="" alt=""> <div class="lb-read" id="lbRead" aria-hidden="true" onclick="event.stopPropagation()"> <div class="lb-read-scroll" id="lbReadContent"></div> </div> <button class="lb-read-btn gone" id="lbReadBtn" aria-expanded="false" aria-controls="lbRead" aria-label="Прочитать текст" title="Прочитать (R)" onclick="event.stopPropagation(),toggleRead()"> <svg class="ic-doc" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><line x1="9" y1="11" x2="16" y2="11"/><line x1="9" y1="14.5" x2="16" y2="14.5"/><line x1="9" y1="18" x2="13" y2="18"/></svg> <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg> </button> <button class="lightbox-mobile-btn lightbox-info-btn" id="lbInfoBtn" onclick="event.stopPropagation(),toggleLbInfo()" aria-label="Описание"> <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.7" r="0.9" fill="#fff" stroke="none"/></svg> </button> <button class="lightbox-mobile-btn lightbox-fullscreen-btn" id="lbFullscreenBtn" onclick="event.stopPropagation(),toggleFsMode()" aria-label="Развернуть"> <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H4v5"/><path d="M15 4h5v5"/><path d="M9 20H4v-5"/><path d="M15 20h5v-5"/></svg> </button> </div> <div class="lightbox-info" id="lbInfo" onclick="event.stopPropagation(),closeLbInfo()"> <div class="lightbox-info-sheet" id="lbInfoSheet" onclick="event.stopPropagation()"> <div class="lightbox-info-inner" id="lbInfoInner"> <div class="lightbox-info-handle" id="lbInfoHandle"></div> <p class="lightbox-seen-badge" id="lbSeenBadge"> <span class="seen-radar" aria-hidden="true"> <span class="seen-radar-ping"></span> <span class="seen-radar-ping seen-radar-ping2"></span> <span class="seen-radar-dot"></span> </span> <span data-ru="Ты уже видел это" data-en="You've already seen this">Ты уже видел это</span> </p> <p class="lightbox-eyebrow" data-ru="История фотки" data-en="The story">История фотки</p> <h3 class="lightbox-title" id="lbCaption"></h3> <div class="lightbox-accent"></div> <p class="lightbox-story" id="lbStory"></p> </div> </div> </div> </div> </div> <script>function initOrbs(){const e=document.getElementById("orb1"),t=document.getElementById("orb2");document.body.style.background="linear-gradient(135deg,rgb(30,18,4) 0%,rgb(45,25,6) 50%,rgb(22,12,2) 100%)",e.style.background="rgba(160,90,10,0.4)",t.style.background="rgba(100,50,5,0.35)",e.offsetWidth,t.offsetWidth,e.style.transition="opacity 2s ease",t.style.transition="opacity 2s ease",e.style.opacity="1",t.style.opacity="1"}initOrbs();let clickCount=0,clickTimer=null;function toggleHiddenSocials(){if(3===++clickCount){const e=document.getElementById("hiddenSocials"),t=!e.classList.contains("show");e.classList.toggle("show"),document.body.classList.toggle("gradient-active"),t?e.addEventListener("transitionend",function t(o){"max-height"===o.propertyName&&(e.classList.add("expanded"),e.removeEventListener("transitionend",t),window.scrollTo({top:document.documentElement.scrollHeight,behavior:"smooth"}))}):e.classList.remove("expanded"),clickCount=0}clearTimeout(clickTimer),clickTimer=setTimeout(()=>{clickCount=0},1e3)}function shakeSoon(e){e.classList.remove("shaking"),e.offsetWidth,e.classList.add("shaking"),e.addEventListener("animationend",()=>e.classList.remove("shaking"),{once:!0})}function toggleMenu(){document.getElementById("mainMenu").classList.toggle("active"),document.getElementById("menuOverlay").classList.toggle("active"),document.getElementById("menuBtn").classList.toggle("open")}!function(){const e=document.getElementById("homeLink"),t=document.getElementById("warrenLink"),o=document.getElementById("warrenGlow");if(!e||!t||!o)return;let n=null,s=null,a=null,i=!1,l=!1,r=!1;function m(){cancelAnimationFrame(a),a=null,e.classList.remove("warren-charging"),o.style.opacity="0"}function d(e){s||(s=e);const n=Math.min((e-s)/3e3,1);o.style.opacity=String(n),n<1?a=requestAnimationFrame(d):(m(),r=!0,i||(i=!0,t.classList.add("revealed"),t.style.pointerEvents="auto"))}function c(){n=null,s=null,e.classList.add("warren-charging"),a=requestAnimationFrame(d)}function u(e){"mousedown"===e.type&&0!==e.button||(l=!0,i||(n=setTimeout(c,3e3)))}function h(){const t=e.classList.contains("warren-charging"),o=null!==n,s=l,a=r;l=!1,r=!1,clearTimeout(n),n=null,i?s&&!a&&(location.href="/"):(m(),t?shakeSoon(e):o&&(location.href="/"))}e.addEventListener("mousedown",u),e.addEventListener("touchstart",u,{passive:!0}),document.addEventListener("mouseup",h),document.addEventListener("touchend",h),document.addEventListener("touchcancel",h),e.addEventListener("contextmenu",e=>e.preventDefault())}();let currentLang="ru";function switchLanguage(){const e="ru"===currentLang?"en":"ru";document.getElementById("langBtn").textContent="ru"===e?"EN":"RU",document.querySelectorAll("[data-ru][data-en]").forEach(t=>t.textContent="ru"===e?t.getAttribute("data-ru"):t.getAttribute("data-en")),currentLang=e,renderGrids(),document.getElementById("lightbox").classList.contains("active")&&(updateLbText(),isReadOpen()&&(renderTranscript(photos[lbIndex].transcript[currentLang]),setReadOpen(!0)))}const PAPER_TEXT={source:"Новости ЕВРАЗа · 29.12.2011",title:"Мама, папа, я — талантливая семья",lead:"23 декабря в МВЦ НТМК открылась большая новогодняя выставка декоративно-прикладного творчества по итогам конкурса «Талантливая семья ЕВРАЗа». В этот раз в ней приняли участие 80 семей работников уральских предприятий компании — НТМК, ВГОКа, НСМЗ и КГОКа.",body:["Многие конкурсанты претендовали на первые места сразу в нескольких номинациях, а всего их было пять: изобразительное, техническое декоративно-прикладное творчество, рукоделие, жанровая фотография и оригинальное хобби.","— Когда пять лет назад мы впервые организовали такой конкурс, очень надеялись, что он понравится работникам ЕВРАЗа, — рассказала Елена Раудштейн. — Сегодня на выставке представлено уже более 700 работ. В числе авторов — ребята из подшефных социальных учреждений и детских домов. Мы рады, что в конкурсе активно принимают участие дети, ведь если родители делают мир сильнее, то дети — краше.",["Торжественную церемонию награждения открыла ",{hl:"семья музыкантов Гусак: Виктор, Мила и их трехлетний сын Святослав"},". Малыш недавно взял в руки ",{hl:"свою первую в жизни скрипку"},", а уже выступил в ансамбле с родителями и сыграл песенку «Маленькая елочка»."],"В зрительном зале также собралось немало тех, кто только делает свои первые шаги в искусстве. Например, Настя Шилова всего второй год посещает художественную школу, а к конкурсу успела подготовить пять различных работ.","— Мама прочитала в корпоративной газете о конкурсе, — рассказывает Настя, — и предложила поучаствовать. Для выставки я выбрала свои лучшие рисунки.","Мама девочки — инженер управления подготовки производства «ЕВРАЗ НТМК» Лидия Шилова призналась, что гордится успехами дочери и очень хотела, чтобы все узнали, какая талантливая у нее Настюша. Возможно, девочка выберет другую профессию, но любовь к творчеству останется, как, например, у дефектоскописта ультразвукового контроля РБЦ Ольги Рыжковой:","— Я в детстве с огромным удовольствием ходила в изостудию, однако профессию выбрала другую. Работу свою я люблю, но и дополнительных увлечений у меня масса. Я вяжу, шью, занимаюсь резьбой по дереву и бисероплетением. В конкурсе «Талантливая семья ЕВРАЗа» участвую в четвертый раз. В этом году принесла работы в технике декупаж, которой недавно увлеклась.","Ольга Рыжкова не только постоянный участник конкурса, но и его убежденный сторонник.","— Это очень важное и нужное дело, — считает она. — Ведь наша жизнь состоит не только из работы. Приходя домой, мы находим время для хобби. А узнать о том, кто чем увлечен, очень интересно. Я в цехе рассказала, чем мне нравится этот конкурс, и, видимо, убедила: в этот раз коллеги тоже принесли свои работы.","Среди последователей Ольги — грузчик Юрий Машков, который в этом году специально к конкурсу сделал оригинального дракона из ракушек, и Лариса Павлова, оператор ЭВМ (складское хозяйство). Она увлекается вязанием крючком жакетов и салфеток.","— Это прекрасная возможность в рамках большой общей выставки подготовить свою, — считает она. — Сама я никогда не справлюсь с этой задачей — некогда, да и просто не знаю, как это делается. А «Талантливая семья ЕВРАЗа» — отличная возможность на других посмотреть, научиться чему-то новому и себя показать.","Все участники и победители конкурса получили из рук управляющего директора «ЕВРАЗ НТМК» памятные подарки и дипломы."],author:"Татьяна Алеева"},PAPER_TEXT_EN={source:"EVRAZ News · 29.12.2011",title:"Mom, Dad and Me — a Talented Family",lead:"On December 23, a large New Year exhibition of decorative and applied art opened at the NTMK Museum and Exhibition Center, showcasing the results of the “Talented EVRAZ Family” contest. This time, 80 families of employees from the company’s Ural enterprises — NTMK, VGOK, NSMZ and KGOK — took part.",body:["Many contestants competed for first place in several categories at once, and there were five in total: fine art, technical and decorative-applied art, handicrafts, genre photography and original hobbies.","“When we organized this contest for the first time five years ago, we really hoped EVRAZ employees would like it,” said Elena Raudshtein. “Today the exhibition features more than 700 works. Among the authors are children from the social institutions and orphanages we support. We’re glad that children take an active part in the contest — after all, if parents make the world stronger, children make it more beautiful.”",["The awards ceremony was opened by ",{hl:"the Gusak family of musicians: Viktor, Mila and their three-year-old son Svyatoslav"},". The little one only recently picked up ",{hl:"the first violin of his life"},", yet he has already performed in an ensemble with his parents, playing the song “Little Christmas Tree.”"],"The audience also included many who are just taking their first steps in art. Nastya Shilova, for example, has been attending art school for only two years, yet she managed to prepare five different works for the contest.","“Mom read about the contest in the company newspaper,” Nastya says, “and suggested I take part. I chose my best drawings for the exhibition.”","The girl’s mother, Lidia Shilova, an engineer in the production preparation department at EVRAZ NTMK, admitted that she is proud of her daughter’s achievements and really wanted everyone to know how talented her Nastyusha is. Perhaps the girl will choose a different profession, but her love of creativity will stay — as it did, for example, for Olga Ryzhkova, an ultrasonic flaw detection technician at the rail and structural steel shop:","“As a child, I loved going to an art studio, but I chose a different profession. I love my job, but I also have plenty of other hobbies. I knit, sew, do woodcarving and beadwork. This is my fourth time taking part in the ‘Talented EVRAZ Family’ contest. This year I brought pieces made in decoupage, a technique I took up recently.”","Olga Ryzhkova is not only a regular participant in the contest but also a firm supporter of it.","“This is a very important and worthwhile thing,” she believes. “After all, our life isn’t only about work. When we come home, we find time for hobbies. And it’s really interesting to learn what other people are passionate about. I told people at my shop why I like this contest, and apparently I convinced them: this time my colleagues brought their work too.”","Among Olga’s followers are loader Yuri Mashkov, who made an original dragon out of seashells especially for this year’s contest, and Larisa Pavlova, a computer operator in the warehouse department. She crochets jackets and doilies.","“It’s a wonderful opportunity to put together your own exhibition within a big shared one,” she says. “I’d never manage that on my own — I don’t have the time, and I simply don’t know how it’s done. But the ‘Talented EVRAZ Family’ contest is a great chance to see what others do, learn something new and show yourself.”","All participants and winners of the contest received commemorative gifts and diplomas from the managing director of EVRAZ NTMK."],author:"Tatyana Aleeva"},photos=[{src:"img/full/28.09.2025.avif",thumb:"img/thumb/28.09.2025.avif",ru:"28 августа 2025",en:"August 28, 2025",storyRu:"",storyEn:""},{src:"img/full/8.09.2025.avif",thumb:"img/thumb/8.09.2025.avif",ru:"8 сентября 2025",en:"September 8, 2025",storyRu:"",storyEn:""},{src:"img/full/1_5.06.2025.avif",thumb:"img/thumb/1_5.06.2025.avif",ru:"5 июня 2025",en:"June 5, 2025",storyRu:"",storyEn:""},{src:"img/full/paper_29.12.2011.avif",thumb:"img/thumb/paper_29.12.2011.avif",ru:"Газета, 29 декабря 2011",en:"Newspaper, December 29, 2011",storyRu:"",storyEn:"",transcript:{ru:PAPER_TEXT,en:PAPER_TEXT_EN}},{src:"img/full/25.05.2021.avif",thumb:"img/thumb/25.05.2021.avif",ru:"25 мая 2021",en:"May 25, 2021",storyRu:"",storyEn:""},{src:"img/full/27.10.2025.avif",thumb:"img/thumb/27.10.2025.avif",ru:"27 октября 2025",en:"October 27, 2025",storyRu:"",storyEn:""},{src:"img/full/29.07.2025.avif",thumb:"img/thumb/29.07.2025.avif",ru:"29 июля 2025",en:"July 29, 2025",storyRu:"",storyEn:""},{src:"img/full/2_5.06.2025.avif",thumb:"img/thumb/2_5.06.2025.avif",ru:"Сейм",en:"Seim",storyRu:"",storyEn:""},{src:"img/full/19.06.2024.avif",thumb:"img/thumb/19.06.2024.avif",ru:"19 июня 2024",en:"June 19, 2024",storyRu:"",storyEn:""}],FEATURED_INDEX=3,waveColumns=[[2,7,8],[4,6],[0,1,5]];function buildRowMajorOrder(e){const t=Math.max(...e.map(e=>e.length)),o=[];for(let n=0;n<t;n++)for(const t of e)void 0!==t[n]&&o.push(t[n]);return o}const viewOrder=[FEATURED_INDEX,...buildRowMajorOrder(waveColumns)];function itemHTML(e,t){const o="ru"===currentLang?e.ru:e.en;return`<div class="wave-item" onclick="openLightbox(${t})">\n                        <img src="${e.thumb}" alt="${o}" loading="lazy">\n                        <div class="cap">${o}</div>\n                    </div>`}function renderGrids(){const e=document.getElementById("waveGrid");e.innerHTML="";const t=photos[FEATURED_INDEX],o="ru"===currentLang?t.ru:t.en,n=document.getElementById("featuredPhotoGlass");n.innerHTML=`<img src="${t.thumb}" alt="${o}" loading="lazy">`,n.setAttribute("onclick",`openLightbox(${FEATURED_INDEX})`),waveColumns.forEach(t=>{const o=document.createElement("div");o.className="wave-col",t.forEach(e=>o.insertAdjacentHTML("beforeend",itemHTML(photos[e],e))),e.appendChild(o)})}renderGrids(),document.addEventListener("dragstart",e=>{e.target.closest&&e.target.closest(".featured-wrap, .wave-masonry, .lightbox-overlay")&&e.preventDefault()}),function(){const e=document.getElementById("waveGrid");let t=null;e.addEventListener("mouseover",o=>{o.target.closest(".wave-item")&&(clearTimeout(t),e.classList.add("is-hovering"))}),e.addEventListener("mouseout",o=>{o.target.closest(".wave-item")&&(t=setTimeout(()=>e.classList.remove("is-hovering"),80))})}();let lbIndex=0,startIndex=null,visitedInSession=null,fullLoopSeen=!1;function openLightbox(e){cancelLbAnim(),clearTimeout(readResetTimer),resetZoom(!1),setReadOpen(!1,!0),lbIndex=e,startIndex=e,visitedInSession=new Set([e]),fullLoopSeen=!1,document.getElementById("lightbox").classList.add("active"),document.getElementById("lightbox").classList.remove("fs-mode"),document.getElementById("lbInfo").classList.remove("open"),document.querySelector(".lightbox-panel").classList.remove("info-open");const t=document.getElementById("lbInfoSheet");t.classList.remove("resizing"),t.style.height="auto",updateLightbox(),document.body.style.overflow="hidden"}function toggleLbInfo(){resetZoom(!0);const e=document.getElementById("lbInfo").classList.toggle("open");document.querySelector(".lightbox-panel").classList.toggle("info-open",e),e&&document.getElementById("lightbox").classList.remove("fs-mode")}function closeLbInfo(){document.getElementById("lbInfo").classList.remove("open"),document.querySelector(".lightbox-panel").classList.remove("info-open")}function toggleFsMode(){resetZoom(!0),document.getElementById("lbInfo").classList.contains("open")&&closeLbInfo(),document.getElementById("lightbox").classList.toggle("fs-mode")}function updateLightbox(){document.getElementById("lbImg").src=photos[lbIndex].src,applyLbState(),updateLbText()}function applyLbState(){document.getElementById("lbReadBtn").classList.toggle("gone",!photos[lbIndex].transcript);const e=fullLoopSeen&&lbIndex===startIndex;document.getElementById("lbSeenBadge").classList.toggle("active",e),document.querySelector(".lightbox-panel").classList.toggle("seen-glow",e)}function updateLbText(){const e=photos[lbIndex],t=document.getElementById("lbInfoSheet"),o=window.matchMedia("(max-width:768px)").matches,n=document.getElementById("lbInfo").classList.contains("open"),s=()=>{document.getElementById("lbCaption").textContent="ru"===currentLang?e.ru:e.en;const t="ru"===currentLang?e.storyRu:e.storyEn;document.getElementById("lbStory").textContent=t;const o=!!t;document.querySelector(".lightbox-eyebrow").style.display=o?"":"none",document.querySelector(".lightbox-accent").style.display=o?"":"none",document.getElementById("lbStory").style.display=o?"":"none"};if(o&&n){const e=t.getBoundingClientRect().height;t.style.transition="none",t.style.height=e+"px",t.offsetHeight,t.style.transition="",t.classList.add("resizing"),setTimeout(()=>{s(),requestAnimationFrame(()=>{const e=t.scrollHeight;t.style.height=e+"px",setTimeout(()=>{t.classList.remove("resizing")},220),setTimeout(()=>{t.style.height="auto"},440)})},150)}else s()}document.getElementById("lbInfoHandle").addEventListener("click",e=>{e.stopPropagation(),toggleLbInfo()});const LB_MS=460,LB_EASE="cubic-bezier(0.4,0,0.2,1)";let lbAnimToken=0,lbCleanup=null;function cancelLbAnim(){lbAnimToken++,lbCleanup&&lbCleanup(),document.getElementById("lbImg").classList.remove("lb-loading")}function swapLightboxPhoto(){const e=++lbAnimToken,t=photos[lbIndex].src,o=document.getElementById("lbPhotoWrap"),n=document.getElementById("lbImg"),s=document.getElementById("lbInfoInner"),a=window.matchMedia("(max-width:768px)").matches,i=document.getElementById("lbInfo").classList.contains("open"),l=setTimeout(()=>{e===lbAnimToken&&n.classList.add("lb-loading")},200),r=new Image;r.src=t;(r.decode?r.decode():new Promise(e=>{r.onload=r.onerror=e})).catch(()=>{}).then(()=>{if(clearTimeout(l),e!==lbAnimToken)return;lbCleanup&&lbCleanup(),n.classList.remove("lb-loading");const m=a&&i;m?(applyLbState(),updateLbText()):(s.style.transition="opacity 0.16s ease, transform 0.16s ease",s.style.opacity="0",s.style.transform="translateY(6px)");const d=o.getBoundingClientRect(),c=document.createElement("img");c.className="lb-ghost",c.alt="",c.src=n.currentSrc||n.src,c.style.borderRadius=getComputedStyle(n).borderRadius,o.insertBefore(c,n.nextSibling),o.style.width=d.width+"px",o.style.height=d.height+"px",o.classList.add("lb-animating"),n.style.transition="none",n.style.opacity="0";let u=null,h=null,p=m;lbCleanup=()=>{lbCleanup=null,clearTimeout(u),clearTimeout(h),p||(p=!0,applyLbState(),updateLbText()),c.remove(),o.classList.remove("lb-animating"),o.style.transition="",o.style.width="",o.style.height="",n.style.transition="",n.style.opacity="",s.style.transition="",s.style.opacity="",s.style.transform=""},n.src=t;(n.complete&&n.naturalWidth===r.naturalWidth&&n.naturalHeight===r.naturalHeight||!n.decode?Promise.resolve():n.decode()).catch(()=>{}).then(()=>{if(e!==lbAnimToken)return;o.classList.remove("lb-animating"),o.style.width="",o.style.height="";const t=o.getBoundingClientRect();o.style.width=d.width+"px",o.style.height=d.height+"px",o.classList.add("lb-animating"),o.offsetWidth,o.style.transition=`width 460ms ${LB_EASE}, height 460ms ${LB_EASE}`,o.style.width=t.width+"px",o.style.height=t.height+"px",n.style.transition=`opacity 460ms ${LB_EASE}`,c.style.transition=`opacity 460ms ${LB_EASE}`,n.style.opacity="1",c.style.opacity="0",p||(u=setTimeout(()=>{p=!0,applyLbState(),updateLbText(),s.style.opacity="1",s.style.transform="none"},170)),h=setTimeout(()=>{lbCleanup&&lbCleanup()},500)})})}function renderTranscript(e){const t=document.getElementById("lbReadContent"),o=(e,t,o)=>{const n=document.createElement(e);return t&&(n.className=t),null!=o&&(n.textContent=o),n};t.textContent="",t.append(o("p","lb-read-src",e.source),o("h4","lb-read-title",e.title),o("p","lb-read-lead",e.lead));const n=o("div","lb-read-body");e.body.forEach(e=>{const t=o("p");(Array.isArray(e)?e:[e]).forEach(e=>t.append("string"==typeof e?e:o("span","lb-read-hl",e.hl))),n.append(t)}),t.append(n,o("p","lb-read-author",e.author)),t.scrollTop=0}function setReadOpen(e,t){const o=document.getElementById("lbRead"),n=document.getElementById("lbReadBtn");t&&(o.classList.add("lb-no-anim"),n.classList.add("lb-no-anim"));const s=photos[lbIndex]&&photos[lbIndex].transcript;if(e&&!s)return;e&&resetZoom(!0),e&&!o.classList.contains("open")&&(renderTranscript(s[currentLang]||s.ru),o.offsetHeight),o.classList.toggle("open",e),o.setAttribute("aria-hidden",e?"false":"true"),n.classList.toggle("open",e),n.setAttribute("aria-expanded",e?"true":"false");const a="ru"===currentLang;n.setAttribute("aria-label",e?a?"Закрыть текст":"Close text":a?"Прочитать текст":"Read text"),n.title=e?a?"Закрыть (R)":"Close (R)":a?"Прочитать (R)":"Read (R)",t&&(o.offsetHeight,o.classList.remove("lb-no-anim"),n.classList.remove("lb-no-anim"))}function toggleRead(){setReadOpen(!document.getElementById("lbRead").classList.contains("open"))}function isReadOpen(){return document.getElementById("lbRead").classList.contains("open")}const ZOOM_CLICK=2.5,ZOOM_MAX=4,ZOOM_MS=350,zoom={s:1,tx:0,ty:0,ds:1,dtx:0,dty:0,mode:"mouse",fx:.5,fy:.5,anim:null,raf:0,last:0,pointers:new Map,pinch:null,pan:null,tap:null,lastTap:null,tapTimer:null},lbWrap=()=>document.getElementById("lbPhotoWrap"),lbImgEl=()=>document.getElementById("lbImg"),lbEl=()=>document.getElementById("lightbox");function isZoomed(){return zoom.s>1.001}function zoomLimits(e){return{mx:(e-1)*lbWrap().clientWidth/2,my:(e-1)*lbWrap().clientHeight/2}}function clampT(e,t,o){const n=zoomLimits(e);return[Math.max(-n.mx,Math.min(n.mx,t)),Math.max(-n.my,Math.min(n.my,o))]}function renderZoom(){const e=lbImgEl();e.style.transition="opacity 0.25s ease",e.style.transform=zoom.ds>1.001?`translate(${zoom.dtx}px, ${zoom.dty}px) scale(${zoom.ds})`:""}function zoomTick(e){zoom.raf=0;const t=zoom.last?Math.min(64,e-zoom.last):16;zoom.last=e;let o=!1;if(zoom.anim){const t=zoom.anim,n=Math.min(1,(e-t.start)/350),s=1-Math.pow(1-n,3);zoom.ds=t.from+(t.to-t.from)*s,"touch"===zoom.mode&&(t.anchor?(zoom.dtx=t.anchor.dx-t.anchor.ux*zoom.ds,zoom.dty=t.anchor.dy-t.anchor.uy*zoom.ds):(zoom.dtx=t.tx0+(zoom.tx-t.tx0)*s,zoom.dty=t.ty0+(zoom.ty-t.ty0)*s),[zoom.dtx,zoom.dty]=clampT(zoom.ds,zoom.dtx,zoom.dty)),n<1?o=!0:(zoom.anim=null,zoom.ds=zoom.s)}else if("mouse"===zoom.mode){const e=1-Math.exp(-t/70);zoom.ds+=(zoom.s-zoom.ds)*e,Math.abs(zoom.s-zoom.ds)>.002?o=!0:zoom.ds=zoom.s}else zoom.ds=zoom.s;if("mouse"===zoom.mode){const e=zoomLimits(zoom.ds),n=2*(.5-zoom.fx)*e.mx,s=2*(.5-zoom.fy)*e.my;if(zoom.anim||o)zoom.dtx=n,zoom.dty=s;else{const e=1-Math.exp(-t/70);zoom.dtx+=(n-zoom.dtx)*e,zoom.dty+=(s-zoom.dty)*e,Math.abs(n-zoom.dtx)>.3||Math.abs(s-zoom.dty)>.3?o=!0:(zoom.dtx=n,zoom.dty=s)}}else zoom.anim||(zoom.dtx=zoom.tx,zoom.dty=zoom.ty);renderZoom(),o?zoomKick():(zoom.last=0,zoom.ds<=1.001&&lbEl().classList.remove("zoom-clip"))}function zoomKick(){zoom.raf||(zoom.raf=requestAnimationFrame(zoomTick))}function setZoomed(e){lbEl().classList.toggle("zoomed",e),e&&lbEl().classList.add("zoom-clip")}function animateZoom(e,t){const o={from:zoom.ds,to:e,start:performance.now(),tx0:zoom.dtx,ty0:zoom.dty};if("touch"===zoom.mode&&t){const n=lbWrap().getBoundingClientRect(),s=t.x-(n.left+n.width/2),a=t.y-(n.top+n.height/2);o.anchor={dx:s,dy:a,ux:(s-zoom.dtx)/zoom.ds,uy:(a-zoom.dty)/zoom.ds},[zoom.tx,zoom.ty]=clampT(e,s-o.anchor.ux*e,a-o.anchor.uy*e)}zoom.s=e,e<=1&&(zoom.tx=zoom.ty=0),zoom.anim=o,setZoomed(e>1),zoomKick()}function resetZoom(e){clearTimeout(zoom.tapTimer),zoom.pointers.clear(),zoom.pinch=zoom.pan=zoom.tap=null,zoom.ds<=1.001&&zoom.s<=1.001&&!lbImgEl().style.transform||(e?animateZoom(1):(zoom.raf&&(cancelAnimationFrame(zoom.raf),zoom.raf=0),zoom.s=zoom.ds=1,zoom.tx=zoom.ty=zoom.dtx=zoom.dty=0,zoom.anim=null,zoom.last=0,renderZoom(),lbEl().classList.remove("zoomed","zoom-clip")))}function setCursorFraction(e,t){const o=lbWrap().getBoundingClientRect();zoom.fx=Math.max(0,Math.min(1,(e-o.left)/o.width)),zoom.fy=Math.max(0,Math.min(1,(t-o.top)/o.height))}function touchTakeOver(){zoom.mode="touch",zoom.anim&&(zoom.anim=null,zoom.s=zoom.ds,zoom.tx=zoom.dtx,zoom.ty=zoom.dty)}function zoomBlocked(e){return!lbEl().classList.contains("active")||isReadOpen()||document.getElementById("lbInfo").classList.contains("open")||e&&e.target.closest&&e.target.closest("button, .lb-read")}!function(){const e=lbWrap();e.addEventListener("pointerdown",e=>{if(!zoomBlocked(e))if(zoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY}),"mouse"!==e.pointerType)if(touchTakeOver(),2===zoom.pointers.size){const[e,t]=[...zoom.pointers.values()];zoom.pinch={d0:Math.hypot(e.x-t.x,e.y-t.y)||1,s0:zoom.s,mx:(e.x+t.x)/2,my:(e.y+t.y)/2},zoom.tap=null,zoom.pan=null}else 1===zoom.pointers.size&&(zoom.pan={x:e.clientX,y:e.clientY,tx0:zoom.tx,ty0:zoom.ty},zoom.tap={x:e.clientX,y:e.clientY,t:Date.now()});else zoom.tap={x:e.clientX,y:e.clientY,t:Date.now()}}),document.addEventListener("pointermove",e=>{"mouse"===e.pointerType&&"mouse"===zoom.mode&&(isZoomed()||zoom.anim)&&lbEl().classList.contains("active")&&(setCursorFraction(e.clientX,e.clientY),zoomKick())}),e.addEventListener("pointermove",t=>{if("mouse"===t.pointerType||!zoom.pointers.has(t.pointerId))return;zoom.pointers.set(t.pointerId,{x:t.clientX,y:t.clientY}),zoom.tap&&Math.hypot(t.clientX-zoom.tap.x,t.clientY-zoom.tap.y)>10&&(zoom.tap=null);const o=e.getBoundingClientRect(),n=o.left+o.width/2,s=o.top+o.height/2;if(zoom.pinch&&zoom.pointers.size>=2){const[e,t]=[...zoom.pointers.values()],o=Math.hypot(e.x-t.x,e.y-t.y),a=Math.max(1,Math.min(4,zoom.pinch.s0*o/zoom.pinch.d0)),i=(e.x+t.x)/2,l=(e.y+t.y)/2,r=(zoom.pinch.mx-n-zoom.tx)/zoom.s,m=(zoom.pinch.my-s-zoom.ty)/zoom.s;zoom.s=a,[zoom.tx,zoom.ty]=clampT(a,i-n-r*a,l-s-m*a),zoom.pinch.mx=i,zoom.pinch.my=l,setZoomed(a>1.001),zoomKick()}else zoom.pan&&isZoomed()&&([zoom.tx,zoom.ty]=clampT(zoom.s,zoom.pan.tx0+(t.clientX-zoom.pan.x),zoom.pan.ty0+(t.clientY-zoom.pan.y)),zoomKick())});const t=e=>{if(!zoom.pointers.has(e.pointerId))return;zoom.pointers.delete(e.pointerId);const t=zoom.tap&&"pointerup"===e.type&&Date.now()-zoom.tap.t<350&&Math.hypot(e.clientX-zoom.tap.x,e.clientY-zoom.tap.y)<("mouse"===e.pointerType?6:10)?zoom.tap:null;if(zoom.tap=null,"mouse"===e.pointerType){if(!t||0!==e.button)return;return zoom.mode="mouse",setCursorFraction(e.clientX,e.clientY),void animateZoom(isZoomed()?1:2.5)}if(zoom.pinch&&zoom.pointers.size<2){zoom.pinch=null,zoom.s<1.08&&animateZoom(1);const e=[...zoom.pointers.values()][0];return void(zoom.pan=e?{x:e.x,y:e.y,tx0:zoom.tx,ty0:zoom.ty}:null)}if(0===zoom.pointers.size&&(zoom.pan=null),!t)return;const o=Date.now(),n=zoom.lastTap;n&&o-n.t<300&&Math.hypot(t.x-n.x,t.y-n.y)<40?(clearTimeout(zoom.tapTimer),zoom.lastTap=null,zoom.mode="touch",animateZoom(isZoomed()?1:2.5,t)):(zoom.lastTap={x:t.x,y:t.y,t:o},clearTimeout(zoom.tapTimer),zoom.tapTimer=setTimeout(()=>{zoom.lastTap=null,!isZoomed()&&lbEl().classList.contains("fs-mode")&&lbEl().classList.remove("fs-mode")},300))};e.addEventListener("pointerup",t),e.addEventListener("pointercancel",t),e.addEventListener("pointerleave",e=>{"mouse"===e.pointerType&&zoom.pointers.delete(e.pointerId)}),e.addEventListener("wheel",e=>{if(zoomBlocked(e))return;e.preventDefault(),zoom.mode="mouse",setCursorFraction(e.clientX,e.clientY);const t=Math.exp(-e.deltaY*(e.ctrlKey?.01:.0015)),o=Math.max(1,Math.min(4,zoom.s*t));o<1.03?isZoomed()&&animateZoom(1):(zoom.anim=null,zoom.s=o,setZoomed(!0),zoomKick())},{passive:!1}),window.addEventListener("resize",()=>resetZoom(!1))}();let readResetTimer=null;function closeLightbox(){clearTimeout(readResetTimer),readResetTimer=setTimeout(()=>{document.getElementById("lightbox").classList.contains("active")||(setReadOpen(!1,!0),resetZoom(!1))},400),cancelLbAnim(),document.getElementById("lightbox").classList.remove("active"),document.body.style.overflow=""}function navLightbox(e){resetZoom(!1),setReadOpen(!1);const t=(viewOrder.indexOf(lbIndex)+e+viewOrder.length)%viewOrder.length;lbIndex=viewOrder[t],visitedInSession.add(lbIndex),lbIndex===startIndex&&visitedInSession.size===photos.length&&(fullLoopSeen=!0),photos[lbIndex].transcript||document.getElementById("lbReadBtn").classList.add("gone"),swapLightboxPhoto()}document.getElementById("lightbox").addEventListener("click",closeLightbox),document.addEventListener("keydown",e=>{document.getElementById("lightbox").classList.contains("active")&&("Escape"===e.key&&(isZoomed()?resetZoom(!0):isReadOpen()?setReadOpen(!1):closeLightbox()),"KeyR"!==e.code||e.ctrlKey||e.metaKey||e.altKey||!photos[lbIndex].transcript||toggleRead(),"ArrowLeft"===e.key&&navLightbox(-1),"ArrowRight"===e.key&&navLightbox(1))})</script> </body> </html> 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slava_Gusak — Галерея</title>
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="preload" as="image" href="img/thumb/paper_29.12.2011.avif" type="image/avif" fetchpriority="high">
+<style>
+html { overscroll-behavior:none; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+color:#e0e0e0; min-height:100vh; overflow-x:hidden;
+position:relative; overscroll-behavior:none;
+background:#1a1006;
+}
+body::before {
+content:''; position:fixed; inset:0; z-index:0;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+background-size:200px 200px; opacity:0.04; pointer-events:none;
+}
+body::after {
+content:''; position:fixed; inset:0; z-index:0;
+background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.5) 100%);
+pointer-events:none;
+}
+.glow-orb { position:fixed; border-radius:50%; filter:blur(90px); opacity:0; pointer-events:none; z-index:0; }
+.glow-orb-1 { width:clamp(260px,55vw,550px); height:clamp(260px,55vw,550px); top:-120px; right:-100px; }
+.glow-orb-2 { width:clamp(210px,45vw,450px); height:clamp(210px,45vw,450px); bottom:-100px; left:-80px; }
+@media (max-width:768px) { .glow-orb { filter:blur(90px) brightness(0.5); } }
+.container { max-width:1000px; margin:0 auto; padding:40px 20px; position:relative; z-index:1; }
+.lang-btn {
+position:fixed; top:64px; right:20px; z-index:100;
+backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
+color:#fff; width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
+font-size:0.85em; font-weight:300; letter-spacing:1px;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
+box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.lang-btn:hover { border-color:rgba(255,255,255,0.2); transform:scale(1.05); background:rgba(255,255,255,0.12); }
+.menu-btn {
+position:fixed; top:20px; right:20px; z-index:100;
+backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
+width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
+display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.menu-btn:hover { border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.12); transform:scale(1.05); }
+.menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:98; opacity:0; visibility:hidden; transition:all 0.3s ease; }
+.menu-overlay.active { opacity:1; visibility:visible; }
+.menu {
+position:fixed; top:-100%; left:0; width:100%;
+backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+background:rgba(18,10,3,0.92); border-bottom:1px solid rgba(255,255,255,0.08);
+box-shadow:0 8px 32px rgba(0,0,0,0.5); z-index:99;
+transition:top 0.4s cubic-bezier(0.4,0,0.2,1); padding:28px 40px 30px;
+}
+.menu.active { top:0; }
+.menu-items { list-style:none; display:flex; justify-content:center; align-items:center; gap:60px; }
+.menu-items a { font-size:1.4em; font-weight:300; letter-spacing:3px; color:#c8c8c8; text-decoration:none; text-transform:uppercase; transition:color 0.3s ease; position:relative; }
+.menu-items a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:rgba(255,255,255,0.4); transition:width 0.3s ease; }
+.menu-items a:hover { color:#fff; }
+.menu-items a:hover::after { width:100%; }
+.menu-items a.active { color:#fff; }
+.menu-items a.active::after { width:100%; background:rgba(255,255,255,0.6); }
+.menu-item-with-sub { position:relative; }
+.menu-item-soon { position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; }
+.menu-item-with-sub > a.no-underline::after { display:none; }
+.submenu-link.submenu-link {
+position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:3px;
+font-size:0.62em; letter-spacing:1.5px; color:#777; text-transform:uppercase; font-weight:300; line-height:1;
+white-space:nowrap; text-decoration:none; opacity:0.65; transition:opacity 0.25s ease, color 0.25s ease;
+}
+.submenu-link.submenu-link::after { display:none; }
+.menu-item-with-sub:hover .submenu-link, .submenu-link:focus, .submenu-link:hover { opacity:1; color:#fff; }
+.submenu-link.warren-link { display:none; pointer-events:none; }
+.submenu-link.warren-link.revealed { display:block; pointer-events:auto; animation:warrenReveal 0.9s cubic-bezier(0.2,0,0.2,1) forwards; }
+@keyframes warrenReveal { from{opacity:0;transform:translate(-50%,-6px)} to{opacity:0.65;transform:translate(-50%,0)} }
+.warren-charging { animation:warrenShake 0.5s ease-in-out infinite; }
+@keyframes warrenShake { 0%,100%{transform:translate(0,0)} 20%{transform:translate(-2px,1px)} 40%{transform:translate(2px,-1px)} 60%{transform:translate(-1px,-2px)} 80%{transform:translate(1px,2px)} }
+.warren-glow {
+position:absolute; inset:-14px; border-radius:16px; pointer-events:none; z-index:-1; opacity:0;
+background:radial-gradient(circle, rgba(255,180,90,0.55), transparent 70%); filter:blur(6px); transition:opacity 0.1s linear;
+}
+@keyframes shake { 0%,100%{transform:translateX(0)} 15%{transform:translateX(-6px)} 35%{transform:translateX(6px)} 55%{transform:translateX(-4px)} 75%{transform:translateX(4px)} 90%{transform:translateX(-2px)} }
+.shaking { animation:shake 0.4s ease; }
+#mainMenu, #mainMenu * { -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; -webkit-user-drag:none; }
+@keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+header { text-align:center; padding:100px 20px 60px; animation:fadeSlideDown 1s ease forwards; }
+h1 { font-size:4em; font-weight:200; letter-spacing:8px; margin-bottom:16px; background:linear-gradient(135deg,#ffffff 0%,rgba(255,230,180,0.7) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.subtitle { font-size:1.15em; color:rgba(255,200,120,0.4); font-weight:300; letter-spacing:3px; text-transform:uppercase; }
+.divider { width:50%; height:1px; background:linear-gradient(90deg,transparent,rgba(255,180,80,0.2),transparent); margin:0 auto 50px; }
+.featured-wrap { display:flex; justify-content:center; margin-bottom:44px; }
+.hint-label {
+text-align:center; font-size:0.72em; letter-spacing:1.5px; text-transform:uppercase;
+color:rgba(255,190,90,0.7); font-weight:300; margin-top:16px;
+}
+.hint-label-wrap { display:flex; flex-direction:column; align-items:center; }
+.featured-photo { border-radius:14px; overflow:hidden; cursor:pointer; display:block; aspect-ratio:0.706; }
+.featured-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+.featured-photo, .wave-item { background:center / cover no-repeat; }
+.featured-photo img:not(.ready), .wave-item img:not(.ready) { opacity:0; filter:blur(14px); transform:scale(1.04); }
+.featured-photo img.ready, .wave-item img.ready {
+transition:opacity 1s cubic-bezier(0.22,0.7,0.2,1), filter 1.4s cubic-bezier(0.22,0.7,0.2,1), transform 1.4s cubic-bezier(0.22,0.7,0.2,1);
+}
+.featured-photo img.ready { transition:opacity 1s cubic-bezier(0.22,0.7,0.2,1), filter 1.4s cubic-bezier(0.22,0.7,0.2,1), transform 0.5s ease; }
+.featured-photo:hover img { transform:scale(1.05); }
+#featureGlass {
+padding:30px; border-radius:26px; position:relative;
+display:flex; flex-direction:column; align-items:center;
+background:rgba(255,255,255,0.07); border:1px solid rgba(255,190,90,0.3);
+backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%);
+box-shadow:
+0 20px 50px rgba(0,0,0,0.5),
+0 0 70px rgba(255,160,50,0.22),
+inset 0 1px 0 rgba(255,255,255,0.1);
+animation:fadeSlideUp 0.6s ease both;
+}
+#featureGlass .featured-photo {
+width:360px; border:1px solid rgba(255,200,120,0.35);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+@media (max-width:768px) {
+#featureGlass { padding:22px; }
+#featureGlass .featured-photo { width:230px; }
+}
+.wave-masonry { display:flex; gap:14px; align-items:flex-start; }
+.wave-col { flex:1; display:flex; flex-direction:column; gap:10px; min-width:0; }
+.wave-col:nth-child(2) { margin-top:22px; }
+.wave-col:nth-child(3) { margin-top:10px; }
+.wave-item {
+border-radius:16px; overflow:hidden; cursor:pointer;
+border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 24px rgba(0,0,0,0.35);
+transition:transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.5s ease-out;
+position:relative;
+}
+.wave-item img { width:100%; height:auto; display:block; }
+.wave-item .cap {
+position:absolute; left:0; right:0; bottom:0; padding:18px 14px 12px;
+background:linear-gradient(to top, rgba(10,6,2,0.85), transparent);
+font-size:0.82em; font-weight:300; letter-spacing:0.5px; color:rgba(255,255,255,0.9);
+opacity:0; transform:translateY(6px); transition:all 0.15s ease-out;
+}
+@media (hover:hover) and (pointer:fine) {
+.wave-item:hover {
+transform:scale(1.1);
+z-index:5;
+box-shadow:0 24px 55px rgba(0,0,0,0.6);
+}
+.wave-item:hover .cap { opacity:1; transform:translateY(0); }
+.wave-masonry.is-hovering .wave-item:not(:hover) {
+filter:blur(1.5px) brightness(0.75) saturate(0.85);
+transform:scale(0.98);
+}
+}
+@media (max-width:768px) {
+.wave-masonry { gap:10px; flex-wrap:wrap; }
+.wave-col { gap:8px; flex:1 1 calc(50% - 5px); min-width:calc(50% - 5px); }
+.wave-col:nth-child(2) { margin-top:14px; }
+.wave-col:nth-child(3) { margin-top:0; }
+}
+.lightbox-overlay {
+position:fixed; inset:0; background:rgba(8,5,2,0.88); backdrop-filter:blur(6px);
+z-index:200; display:flex; align-items:center; justify-content:center;
+opacity:0; visibility:hidden; transition:opacity 0.35s ease, visibility 0.35s ease; padding:30px;
+}
+.lightbox-overlay.active { opacity:1; visibility:visible; }
+.lightbox-panel {
+display:flex; max-width:1000px; width:100%; max-height:85vh;
+background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+border-radius:20px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.6);
+backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%);
+transform:scale(0.96); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.lightbox-overlay.active .lightbox-panel { transform:scale(1); }
+.lightbox-panel.seen-glow {
+border-color:rgba(255,175,70,0.55);
+box-shadow:0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,160,50,0.25), 0 0 55px rgba(255,140,30,0.28);
+animation:seenPanelPulse 3.2s ease-in-out infinite;
+}
+@keyframes seenPanelPulse {
+0%,100% { box-shadow:0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,160,50,0.22), 0 0 45px rgba(255,140,30,0.22); }
+50% { box-shadow:0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,170,70,0.4), 0 0 65px rgba(255,140,30,0.38); }
+}
+.lightbox-photo {
+flex:none; width:fit-content; height:fit-content; max-width:65%; max-height:100%;
+background:transparent; display:flex; align-items:center; justify-content:center; min-width:0; align-self:center;
+}
+.lightbox-photo img { display:block; max-width:100%; max-height:85vh; width:auto; height:auto; object-fit:contain; border-radius:20px 0 0 20px; }
+.lightbox-photo { position:relative; }
+.lightbox-photo.lb-animating { overflow:hidden; }
+.lightbox-photo.lb-animating #lbImg { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:cover; }
+.lightbox-photo .lb-ghost { position:absolute; inset:0; width:100%; height:100%; max-width:none; max-height:none; object-fit:cover; pointer-events:none; z-index:1; will-change:opacity; }
+#lbImg { transition:opacity 0.25s ease; }
+#lbImg.lb-loading { opacity:0.55; }
+.lightbox-photo { touch-action:none; }
+@media (hover:hover) and (pointer:fine) {
+#lbImg { cursor:zoom-in; }
+.lightbox-overlay.zoomed #lbImg { cursor:zoom-out; }
+}
+.lightbox-overlay.zoom-clip .lightbox-photo { overflow:hidden; }
+.lightbox-overlay.zoomed .lightbox-nav,
+.lightbox-overlay.zoomed .lb-read-btn,
+.lightbox-overlay.zoomed .lightbox-mobile-btn { opacity:0 !important; pointer-events:none; transition:opacity 0.2s ease; }
+.lightbox-info {
+flex:1; padding:44px 38px; display:flex; flex-direction:column; justify-content:center;
+border-left:1px solid rgba(255,255,255,0.08); min-width:280px;
+}
+.lightbox-seen-badge {
+display:none; align-items:center; gap:8px; width:fit-content;
+font-size:0.68em; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+color:rgba(255,205,120,0.95); white-space:nowrap; margin-bottom:14px;
+}
+.lightbox-seen-badge.active {
+display:inline-flex;
+animation:seenBadgeFade 0.5s ease both;
+}
+@keyframes seenBadgeFade {
+0% { opacity:0; transform:translateY(4px); }
+100% { opacity:1; transform:translateY(0); }
+}
+.seen-radar { position:relative; width:14px; height:14px; flex:none; }
+.seen-radar-dot {
+position:absolute; top:50%; left:50%; width:6px; height:6px; margin:-3px 0 0 -3px;
+border-radius:50%; background:rgb(255,180,60);
+box-shadow:0 0 6px rgba(255,180,60,0.9), 0 0 2px rgba(255,180,60,1);
+}
+.seen-radar-ping {
+position:absolute; top:50%; left:50%; width:7px; height:7px; margin:-3.5px 0 0 -3.5px;
+border-radius:50%; background:rgba(255,180,60,0.9);
+animation:seenRadarPing 2.2s cubic-bezier(0,0,0.2,1) infinite;
+}
+.seen-radar-ping2 { animation-delay:1.1s; }
+@keyframes seenRadarPing {
+0% { transform:scale(1); opacity:0.75; }
+70%,100% { transform:scale(4.6); opacity:0; }
+}
+.lightbox-eyebrow { font-size:0.72em; letter-spacing:3px; text-transform:uppercase; font-weight:300; color:rgba(255,180,60,0.75); margin-bottom:18px; }
+.lightbox-title { font-size:1.7em; font-weight:200; letter-spacing:1px; color:rgba(255,255,255,0.92); margin-bottom:20px; line-height:1.3; }
+.lightbox-accent { width:40px; height:1px; background:linear-gradient(90deg,rgba(255,180,60,0.85),transparent); margin-bottom:20px; }
+.lightbox-story { font-size:0.95em; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.8; letter-spacing:0.3px; }
+.lightbox-close {
+position:absolute; top:20px; right:24px; z-index:201; width:42px; height:42px; border-radius:50%;
+background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff;
+cursor:pointer; display:flex; align-items:center; justify-content:center;
+transition:all 0.25s ease;
+}
+.lightbox-close svg { width:18px; height:18px; stroke:#fff; }
+.lightbox-close:hover { background:rgba(255,255,255,0.18); transform:rotate(90deg); }
+.lightbox-nav {
+position:absolute; top:50%; transform:translateY(-50%); z-index:201; width:46px; height:46px; border-radius:50%;
+background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff;
+cursor:pointer; display:flex; align-items:center; justify-content:center;
+transition:all 0.25s ease;
+}
+.lightbox-nav svg { width:20px; height:20px; stroke:#fff; }
+.lightbox-nav:hover { background:rgba(255,190,90,0.85); color:#1a1006; }
+.lightbox-nav:hover svg { stroke:#1a1006; }
+.lightbox-prev { left:10px; } .lightbox-next { right:10px; }
+@media (max-width:768px) {
+.lightbox-overlay { padding:14px; }
+.lightbox-panel {
+flex-direction:column; width:fit-content; height:fit-content;
+max-width:100%; max-height:100%;
+align-items:center; justify-content:center;
+background:transparent; border:none; box-shadow:none;
+position:relative; overflow:visible;
+}
+.lightbox-panel.seen-glow {
+border:none; box-shadow:none; animation:none;
+}
+.lightbox-photo {
+width:fit-content; height:fit-content; max-width:100%; max-height:100%;
+border-radius:16px; border:1px solid rgba(255,255,255,0.12);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+transition:filter 0.35s ease;
+position:relative;
+}
+.lightbox-panel.seen-glow .lightbox-photo {
+border-color:rgba(255,175,70,0.55);
+box-shadow:0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,160,50,0.25), 0 0 40px rgba(255,140,30,0.28);
+animation:seenPanelPulse 3.2s ease-in-out infinite;
+}
+.lightbox-photo img {
+display:block; width:auto; height:auto; max-width:100%; max-height:100%;
+object-fit:contain; border-radius:16px;
+}
+.lightbox-panel.info-open .lightbox-photo {
+filter:blur(10px) brightness(0.6);
+}
+.lightbox-mobile-btn, .lightbox-nav, .lightbox-close {
+border-radius:14px;
+backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
+box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.lightbox-mobile-btn:active, .lightbox-nav:active, .lightbox-close:active {
+transform:scale(0.94); background:rgba(255,255,255,0.14);
+}
+.lightbox-mobile-btn {
+position:absolute; bottom:14px; z-index:6; width:48px; height:40px;
+cursor:pointer; display:flex; align-items:center; justify-content:center;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.lightbox-mobile-btn svg { width:19px; height:19px; stroke:#fff; opacity:0.9; }
+.lightbox-info-btn { left:14px; }
+.lightbox-fullscreen-btn { right:14px; }
+.lightbox-nav {
+width:44px; height:40px; color:#fff;
+display:flex; align-items:center; justify-content:center;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.lightbox-nav svg { width:18px; height:18px; stroke:#fff; opacity:0.9; }
+.lightbox-close {
+width:44px; height:40px; color:#fff;
+display:flex; align-items:center; justify-content:center;
+transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.lightbox-close svg { width:18px; height:18px; stroke:#fff; opacity:0.9; }
+.lightbox-close:hover { transform:none; }
+.lightbox-overlay.fs-mode .lightbox-mobile-btn,
+.lightbox-overlay.fs-mode .lightbox-nav,
+.lightbox-overlay.fs-mode .lightbox-close { opacity:0; pointer-events:none; }
+.lightbox-info {
+position:fixed; left:0; right:0; bottom:0; width:100%; top:0;
+overflow:hidden; display:flex; flex-direction:row; align-items:center; justify-content:flex-end;
+border:none; border-radius:0; padding:14px;
+background:transparent;
+pointer-events:none;
+z-index:204;
+}
+.lightbox-info-sheet {
+width:min(78vw,380px); height:auto; max-height:100%; overflow-y:auto;
+border:1px solid rgba(255,190,90,0.25);
+border-radius:20px;
+padding:24px 24px calc(24px + env(safe-area-inset-bottom));
+background:linear-gradient(160deg, rgba(45,25,6,0.96) 0%, rgba(22,12,2,0.98) 100%);
+backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%);
+box-shadow:-10px 0 40px rgba(0,0,0,0.5);
+transform:translateX(calc(100% + 14px));
+transition:transform 0.4s cubic-bezier(0.4,0,0.2,1), height 0.42s cubic-bezier(0.4,0,0.2,1);
+pointer-events:auto;
+display:flex; flex-direction:column; justify-content:center;
+}
+.lightbox-info-sheet .lightbox-info-inner {
+transition:filter 0.15s ease;
+}
+.lightbox-info-sheet.resizing .lightbox-info-inner {
+filter:blur(6px);
+}
+.lightbox-info.open { pointer-events:auto; }
+.lightbox-info.open .lightbox-info-sheet { transform:translateX(0); }
+.lightbox-info-handle { display:none; }
+.lightbox-nav { top:auto; bottom:16px; transform:none; z-index:203; }
+.lightbox-prev { left:14px; } .lightbox-next { right:14px; }
+.lightbox-close { top:calc(14px + env(safe-area-inset-top)); right:14px; z-index:203; }
+}
+@media (min-width:769px) { .lightbox-mobile-btn { display:none; } }
+.lb-read-btn {
+position:absolute; bottom:14px; right:14px; z-index:7;
+width:44px; height:40px; padding:0; border-radius:14px; cursor:pointer;
+display:flex; align-items:center; justify-content:center;
+backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+background:rgba(20,12,4,0.5); border:1px solid rgba(255,190,90,0.5);
+animation:readPulse 2.8s ease-in-out infinite;
+transition:opacity 0.3s ease 0.25s, transform 0.3s ease 0.25s, background 0.25s ease;
+}
+.lb-read-btn.gone {
+opacity:0; transform:scale(0.8); pointer-events:none; animation:none;
+transition:opacity 0.2s ease, transform 0.2s ease;
+}
+.lb-read-btn:hover { background:rgba(255,190,90,0.2); }
+.lb-read-btn:active { transform:scale(0.94); }
+.lb-read-btn.open { animation:none; box-shadow:0 4px 16px rgba(0,0,0,0.35); }
+.lb-read-btn svg { width:19px; height:19px; stroke:rgba(255,205,120,0.95); }
+.lb-read-btn .ic-close, .lb-read-btn.open .ic-doc { display:none; }
+.lb-read-btn.open .ic-close { display:block; }
+@keyframes readPulse {
+0%,100% { box-shadow:0 4px 16px rgba(0,0,0,0.35), 0 0 10px rgba(255,160,50,0.15); }
+50% { box-shadow:0 4px 16px rgba(0,0,0,0.35), 0 0 26px rgba(255,160,50,0.45); }
+}
+.lightbox-overlay { -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+.lightbox-overlay img { -webkit-user-drag:none; }
+.featured-wrap, .wave-masonry { -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+.featured-wrap img, .wave-masonry img { -webkit-user-drag:none; }
+.lb-read-scroll { -webkit-user-select:text; user-select:text; }
+.lightbox-overlay.fs-mode .lb-read-btn { opacity:0; pointer-events:none; }
+.lb-read {
+position:absolute; inset:0; z-index:4; border-radius:inherit; overflow:hidden;
+background:rgba(12,7,2,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+opacity:0; visibility:hidden; transition:opacity 0.35s ease, visibility 0.35s ease;
+}
+.lb-read.open { opacity:1; visibility:visible; }
+.lb-no-anim, .lb-no-anim * { transition:none !important; animation:none !important; }
+.lb-read::after { content:''; position:absolute; left:0; right:0; bottom:0; height:96px; pointer-events:none; background:linear-gradient(to bottom, transparent, rgba(12,7,2,0.96)); }
+.lb-read-scroll {
+position:absolute; inset:0; overflow-y:auto; overscroll-behavior:contain;
+padding:34px 30px 84px; text-align:left;
+scrollbar-width:thin; scrollbar-color:rgba(255,190,90,0.4) transparent;
+}
+.lb-read-scroll > * { opacity:0; transform:translateY(8px); transition:opacity 0.45s ease, transform 0.45s ease; }
+.lb-read.open .lb-read-scroll > * { opacity:1; transform:none; }
+.lb-read.open .lb-read-scroll > :nth-child(2) { transition-delay:0.06s; }
+.lb-read.open .lb-read-scroll > :nth-child(3) { transition-delay:0.12s; }
+.lb-read.open .lb-read-scroll > :nth-child(n+4) { transition-delay:0.18s; }
+.lb-read-src { font-size:0.68em; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,180,60,0.85); margin-bottom:12px; }
+.lb-read-title { font-size:1.45em; font-weight:300; line-height:1.25; color:#fff; margin-bottom:16px; }
+.lb-read-lead { font-size:0.95em; line-height:1.6; color:rgba(255,235,205,0.92); padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid rgba(255,190,90,0.2); }
+.lb-read-body p { font-size:0.9em; line-height:1.7; font-weight:300; color:rgba(255,255,255,0.78); margin-bottom:0.8em; }
+.lb-read-hl { color:rgb(255,196,110); font-weight:400; }
+.lb-read-author { text-align:right; font-style:italic; font-size:0.85em; color:rgba(255,255,255,0.6); margin-top:4px; }
+@media (max-width:768px) {
+.lb-read-btn { right:72px; }
+.lb-read-scroll { padding:26px 20px 76px; }
+.lb-read-title { font-size:1.25em; }
+}
+footer { text-align:center; padding:80px 20px 60px; color:rgba(255,255,255,0.45); font-size:0.82em; font-weight:300; letter-spacing:1px; }
+.copyright { cursor:pointer; display:inline-block; transition:color 0.3s ease; user-select:none; }
+.copyright:hover { color:rgba(255,255,255,0.7); }
+.hidden-socials { max-height:0; overflow:hidden; opacity:0; margin-top:0; transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease, margin-top 0.5s ease; }
+.hidden-socials.show { max-height:100px; opacity:1; margin-top:30px; }
+.hidden-socials.expanded { overflow:visible; }
+.social-links-row { display:flex; gap:20px; justify-content:center; }
+.social-link {
+display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%;
+background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+transition:all 0.4s cubic-bezier(0.4,0,0.2,1); position:relative; will-change:transform;
+}
+.social-link::before { content:''; position:absolute; inset:0; border-radius:50%; opacity:0; transition:opacity 0.4s ease; }
+.social-link[data-social="twitter"]::before { background:radial-gradient(circle,rgba(29,161,242,0.3),transparent 70%); }
+.social-link[data-social="telegram"]::before { background:radial-gradient(circle,rgba(0,136,204,0.3),transparent 70%); }
+.social-link:hover::before { opacity:1; }
+.social-link:hover { transform:translateY(-3px) scale(1.1); border-color:rgba(255,255,255,0.3); box-shadow:0 5px 20px rgba(0,0,0,0.4); }
+.social-link svg { width:24px; height:24px; fill:#c8c8c8; transition:fill 0.3s ease; position:relative; z-index:1; }
+.social-link:hover svg { fill:#fff; }
+.bottom-glow {
+position:fixed; left:0; right:0; bottom:0; height:400px; pointer-events:none; z-index:0; opacity:0;
+transition:opacity 1s ease;
+background:linear-gradient(to bottom, transparent 0, rgba(60,30,4,0.25) 30%, rgba(90,45,6,0.5) 60%, rgba(120,60,8,0.8) 100%);
+}
+body.gradient-active .bottom-glow { opacity:1; }
+@media (max-width:768px) { h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 40px} .menu-items{flex-direction:column;gap:24px} .menu-items a{font-size:1.3em} .submenu-link.submenu-link{font-size:0.93em} .menu-item-with-sub{margin-bottom:14px} }
+</style>
+</head>
+<body>
+<div class="glow-orb glow-orb-1" id="orb1"></div>
+<div class="glow-orb glow-orb-2" id="orb2"></div>
+<div class="bottom-glow" aria-hidden="true"></div>
+<button class="lang-btn" id="langBtn" onclick="switchLanguage()">EN</button>
+<button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<nav class="menu" id="mainMenu">
+<ul class="menu-items">
+<li><a href="../music/" data-ru="Музыка" data-en="Music">Музыка</a></li>
+<li class="menu-item-with-sub menu-item-soon">
+<a href="/" class="no-underline" id="homeLink" onclick="if(!event.detail)location.href='/';return false"><span class="warren-glow" id="warrenGlow"></span><span data-ru="Главная" data-en="Home">Главная</span></a>
+<a href="../warren/" class="submenu-link warren-link" id="warrenLink" data-ru="Дебри" data-en="Warren">Дебри</a>
+</li>
+<li><a href="index.html" class="active" data-ru="Галерея" data-en="Gallery">Галерея</a></li>
+</ul>
+</nav>
+<div class="container">
+<header>
+<h1>Slava_Gusak</h1>
+<p class="subtitle" data-ru="Галерея" data-en="Gallery">Галерея</p>
+</header>
+<div class="divider"></div>
+<div class="featured-wrap">
+<div class="hint-label-wrap">
+<div id="featureGlass">
+<div class="featured-photo" id="featuredPhotoGlass"></div>
+</div>
+<p class="hint-label" data-ru="Нажми на фото, чтобы приблизить" data-en="Click a photo to zoom in">Нажми на фото, чтобы приблизить</p>
+</div>
+</div>
+<div class="wave-masonry" id="waveGrid"></div>
+<footer>
+<p class="copyright" onclick="toggleHiddenSocials()">© 2026 Slava_Gusak</p>
+<div class="hidden-socials" id="hiddenSocials">
+<div class="social-links-row">
+<a href="https://twitter.com/GooseSvyatoslav" class="social-link" data-social="twitter" target="_blank" rel="noopener" title="Twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+<a href="https://t.me/Slava_Gusak" class="social-link" data-social="telegram" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg></a>
+</div>
+</div>
+</footer>
+</div>
+<div class="lightbox-overlay" id="lightbox">
+<button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+</button>
+<button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navLightbox(-1)">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"/></svg>
+</button>
+<button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navLightbox(1)">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"/></svg>
+</button>
+<div class="lightbox-panel" onclick="event.stopPropagation()">
+<div class="lightbox-photo" id="lbPhotoWrap">
+<img id="lbImg" src="" alt="">
+<div class="lb-read" id="lbRead" aria-hidden="true" onclick="event.stopPropagation()">
+<div class="lb-read-scroll" id="lbReadContent"></div>
+</div>
+<button class="lb-read-btn gone" id="lbReadBtn" aria-expanded="false" aria-controls="lbRead" aria-label="Прочитать текст" title="Прочитать (R)" onclick="event.stopPropagation(); toggleRead();">
+<svg class="ic-doc" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><line x1="9" y1="11" x2="16" y2="11"/><line x1="9" y1="14.5" x2="16" y2="14.5"/><line x1="9" y1="18" x2="13" y2="18"/></svg>
+<svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+</button>
+<button class="lightbox-mobile-btn lightbox-info-btn" id="lbInfoBtn" onclick="event.stopPropagation(); toggleLbInfo();" aria-label="Описание">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.7" r="0.9" fill="#fff" stroke="none"/></svg>
+</button>
+<button class="lightbox-mobile-btn lightbox-fullscreen-btn" id="lbFullscreenBtn" onclick="event.stopPropagation(); toggleFsMode();" aria-label="Развернуть">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H4v5"/><path d="M15 4h5v5"/><path d="M9 20H4v-5"/><path d="M15 20h5v-5"/></svg>
+</button>
+</div>
+<div class="lightbox-info" id="lbInfo" onclick="event.stopPropagation(); closeLbInfo();">
+<div class="lightbox-info-sheet" id="lbInfoSheet" onclick="event.stopPropagation()">
+<div class="lightbox-info-inner" id="lbInfoInner">
+<div class="lightbox-info-handle" id="lbInfoHandle"></div>
+<p class="lightbox-seen-badge" id="lbSeenBadge">
+<span class="seen-radar" aria-hidden="true">
+<span class="seen-radar-ping"></span>
+<span class="seen-radar-ping seen-radar-ping2"></span>
+<span class="seen-radar-dot"></span>
+</span>
+<span data-ru="Ты уже видел это" data-en="You've already seen this">Ты уже видел это</span>
+</p>
+<p class="lightbox-eyebrow" data-ru="История фотки" data-en="The story">История фотки</p>
+<h3 class="lightbox-title" id="lbCaption"></h3>
+<div class="lightbox-accent"></div>
+<p class="lightbox-story" id="lbStory"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function initOrbs(){
+const o1=document.getElementById('orb1'),o2=document.getElementById('orb2');
+document.body.style.background='linear-gradient(135deg,rgb(30,18,4) 0%,rgb(45,25,6) 50%,rgb(22,12,2) 100%)';
+o1.style.background='rgba(160,90,10,0.4)';
+o2.style.background='rgba(100,50,5,0.35)';
+void o1.offsetWidth; void o2.offsetWidth;
+o1.style.transition='opacity 2s ease'; o2.style.transition='opacity 2s ease';
+o1.style.opacity='1'; o2.style.opacity='1';
+}
+initOrbs();
+let clickCount = 0, clickTimer = null;
+function toggleHiddenSocials(){
+if (++clickCount === 3) {
+const box = document.getElementById('hiddenSocials');
+const opening = !box.classList.contains('show');
+box.classList.toggle('show');
+document.body.classList.toggle('gradient-active');
+if (opening) {
+box.addEventListener('transitionend', function done(e){
+if (e.propertyName !== 'max-height') return;
+box.classList.add('expanded');
+box.removeEventListener('transitionend', done);
+window.scrollTo({ top:document.documentElement.scrollHeight, behavior:'smooth' });
+});
+} else {
+box.classList.remove('expanded');
+}
+clickCount = 0;
+}
+clearTimeout(clickTimer);
+clickTimer = setTimeout(() => { clickCount = 0; }, 1000);
+}
+function shakeSoon(el){
+el.classList.remove('shaking'); void el.offsetWidth; el.classList.add('shaking');
+el.addEventListener('animationend', () => el.classList.remove('shaking'), { once:true });
+}
+(function initWarren(){
+const home = document.getElementById('homeLink'), link = document.getElementById('warrenLink'), glow = document.getElementById('warrenGlow');
+if (!home || !link || !glow) return;
+let holdTimer = null, chargeStart = null, raf = null, revealed = false, pressed = false, justRevealed = false;
+function stopCharging(){ cancelAnimationFrame(raf); raf = null; home.classList.remove('warren-charging'); glow.style.opacity = '0'; }
+function reveal(){ if (revealed) return; revealed = true; link.classList.add('revealed'); link.style.pointerEvents = 'auto'; }
+function charge(t){
+if (!chargeStart) chargeStart = t;
+const k = Math.min((t - chargeStart) / 3000, 1);
+glow.style.opacity = String(k);
+if (k < 1) raf = requestAnimationFrame(charge);
+else { stopCharging(); justRevealed = true; reveal(); }
+}
+function startCharging(){ holdTimer = null; chargeStart = null; home.classList.add('warren-charging'); raf = requestAnimationFrame(charge); }
+function press(e){
+if (e.type === 'mousedown' && e.button !== 0) return;
+pressed = true;
+if (!revealed) holdTimer = setTimeout(startCharging, 3000);
+}
+function release(){
+const wasCharging = home.classList.contains('warren-charging'), wasWaiting = holdTimer !== null;
+const wasPressed = pressed, wasJustRevealed = justRevealed;
+pressed = false; justRevealed = false;
+clearTimeout(holdTimer); holdTimer = null;
+if (revealed) { if (wasPressed && !wasJustRevealed) location.href = '/'; }
+else {
+stopCharging();
+if (wasCharging) shakeSoon(home);            // отпустил во время «зарядки» — тряска, ссылка не появилась
+else if (wasWaiting) location.href = '/';   // короткое нажатие — просто переход на главную
+}
+}
+home.addEventListener('mousedown', press);
+home.addEventListener('touchstart', press, { passive:true });
+document.addEventListener('mouseup', release);
+document.addEventListener('touchend', release);
+document.addEventListener('touchcancel', release);
+home.addEventListener('contextmenu', e => e.preventDefault());
+})();
+function toggleMenu(){document.getElementById('mainMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');document.getElementById('menuBtn').classList.toggle('open')}
+let currentLang='ru';
+function switchLanguage(){
+const nl=currentLang==='ru'?'en':'ru';
+document.getElementById('langBtn').textContent=nl==='ru'?'EN':'RU';
+document.querySelectorAll('[data-ru][data-en]').forEach(el=>el.textContent=nl==='ru'?el.getAttribute('data-ru'):el.getAttribute('data-en'));
+currentLang=nl;
+updateGridCaptions(); // подписи к фото тоже следуют за языком
+if (document.getElementById('lightbox').classList.contains('active')) {
+updateLbText();
+if (isReadOpen()) { renderTranscript(photos[lbIndex].transcript[currentLang]); setReadOpen(true); }
+}
+}
+/* =========================================================
+PHOTO DATA — подставь свои подписи/истории вместо примеров ниже.
+========================================================= */
+const PAPER_TEXT = {
+source: 'Новости ЕВРАЗа · 29.12.2011',
+title: 'Мама, папа, я — талантливая семья',
+lead: '23 декабря в МВЦ НТМК открылась большая новогодняя выставка декоративно-прикладного творчества по итогам конкурса «Талантливая семья ЕВРАЗа». В этот раз в ней приняли участие 80 семей работников уральских предприятий компании — НТМК, ВГОКа, НСМЗ и КГОКа.',
+body: [
+'Многие конкурсанты претендовали на первые места сразу в нескольких номинациях, а всего их было пять: изобразительное, техническое декоративно-прикладное творчество, рукоделие, жанровая фотография и оригинальное хобби.',
+'— Когда пять лет назад мы впервые организовали такой конкурс, очень надеялись, что он понравится работникам ЕВРАЗа, — рассказала Елена Раудштейн. — Сегодня на выставке представлено уже более 700 работ. В числе авторов — ребята из подшефных социальных учреждений и детских домов. Мы рады, что в конкурсе активно принимают участие дети, ведь если родители делают мир сильнее, то дети — краше.',
+['Торжественную церемонию награждения открыла ', { hl: 'семья музыкантов Гусак: Виктор, Мила и их трехлетний сын Святослав' }, '. Малыш недавно взял в руки ', { hl: 'свою первую в жизни скрипку' }, ', а уже выступил в ансамбле с родителями и сыграл песенку «Маленькая елочка».'],
+'В зрительном зале также собралось немало тех, кто только делает свои первые шаги в искусстве. Например, Настя Шилова всего второй год посещает художественную школу, а к конкурсу успела подготовить пять различных работ.',
+'— Мама прочитала в корпоративной газете о конкурсе, — рассказывает Настя, — и предложила поучаствовать. Для выставки я выбрала свои лучшие рисунки.',
+'Мама девочки — инженер управления подготовки производства «ЕВРАЗ НТМК» Лидия Шилова призналась, что гордится успехами дочери и очень хотела, чтобы все узнали, какая талантливая у нее Настюша. Возможно, девочка выберет другую профессию, но любовь к творчеству останется, как, например, у дефектоскописта ультразвукового контроля РБЦ Ольги Рыжковой:',
+'— Я в детстве с огромным удовольствием ходила в изостудию, однако профессию выбрала другую. Работу свою я люблю, но и дополнительных увлечений у меня масса. Я вяжу, шью, занимаюсь резьбой по дереву и бисероплетением. В конкурсе «Талантливая семья ЕВРАЗа» участвую в четвертый раз. В этом году принесла работы в технике декупаж, которой недавно увлеклась.',
+'Ольга Рыжкова не только постоянный участник конкурса, но и его убежденный сторонник.',
+'— Это очень важное и нужное дело, — считает она. — Ведь наша жизнь состоит не только из работы. Приходя домой, мы находим время для хобби. А узнать о том, кто чем увлечен, очень интересно. Я в цехе рассказала, чем мне нравится этот конкурс, и, видимо, убедила: в этот раз коллеги тоже принесли свои работы.',
+'Среди последователей Ольги — грузчик Юрий Машков, который в этом году специально к конкурсу сделал оригинального дракона из ракушек, и Лариса Павлова, оператор ЭВМ (складское хозяйство). Она увлекается вязанием крючком жакетов и салфеток.',
+'— Это прекрасная возможность в рамках большой общей выставки подготовить свою, — считает она. — Сама я никогда не справлюсь с этой задачей — некогда, да и просто не знаю, как это делается. А «Талантливая семья ЕВРАЗа» — отличная возможность на других посмотреть, научиться чему-то новому и себя показать.',
+'Все участники и победители конкурса получили из рук управляющего директора «ЕВРАЗ НТМК» памятные подарки и дипломы.'
+],
+author: 'Татьяна Алеева'
+};
+const PAPER_TEXT_EN = {
+source: 'EVRAZ News · 29.12.2011',
+title: 'Mom, Dad and Me — a Talented Family',
+lead: 'On December 23, a large New Year exhibition of decorative and applied art opened at the NTMK Museum and Exhibition Center, showcasing the results of the “Talented EVRAZ Family” contest. This time, 80 families of employees from the company’s Ural enterprises — NTMK, VGOK, NSMZ and KGOK — took part.',
+body: [
+'Many contestants competed for first place in several categories at once, and there were five in total: fine art, technical and decorative-applied art, handicrafts, genre photography and original hobbies.',
+'“When we organized this contest for the first time five years ago, we really hoped EVRAZ employees would like it,” said Elena Raudshtein. “Today the exhibition features more than 700 works. Among the authors are children from the social institutions and orphanages we support. We’re glad that children take an active part in the contest — after all, if parents make the world stronger, children make it more beautiful.”',
+['The awards ceremony was opened by ', { hl: 'the Gusak family of musicians: Viktor, Mila and their three-year-old son Svyatoslav' }, '. The little one only recently picked up ', { hl: 'the first violin of his life' }, ', yet he has already performed in an ensemble with his parents, playing the song “Little Christmas Tree.”'],
+'The audience also included many who are just taking their first steps in art. Nastya Shilova, for example, has been attending art school for only two years, yet she managed to prepare five different works for the contest.',
+'“Mom read about the contest in the company newspaper,” Nastya says, “and suggested I take part. I chose my best drawings for the exhibition.”',
+'The girl’s mother, Lidia Shilova, an engineer in the production preparation department at EVRAZ NTMK, admitted that she is proud of her daughter’s achievements and really wanted everyone to know how talented her Nastyusha is. Perhaps the girl will choose a different profession, but her love of creativity will stay — as it did, for example, for Olga Ryzhkova, an ultrasonic flaw detection technician at the rail and structural steel shop:',
+'“As a child, I loved going to an art studio, but I chose a different profession. I love my job, but I also have plenty of other hobbies. I knit, sew, do woodcarving and beadwork. This is my fourth time taking part in the ‘Talented EVRAZ Family’ contest. This year I brought pieces made in decoupage, a technique I took up recently.”',
+'Olga Ryzhkova is not only a regular participant in the contest but also a firm supporter of it.',
+'“This is a very important and worthwhile thing,” she believes. “After all, our life isn’t only about work. When we come home, we find time for hobbies. And it’s really interesting to learn what other people are passionate about. I told people at my shop why I like this contest, and apparently I convinced them: this time my colleagues brought their work too.”',
+'Among Olga’s followers are loader Yuri Mashkov, who made an original dragon out of seashells especially for this year’s contest, and Larisa Pavlova, a computer operator in the warehouse department. She crochets jackets and doilies.',
+'“It’s a wonderful opportunity to put together your own exhibition within a big shared one,” she says. “I’d never manage that on my own — I don’t have the time, and I simply don’t know how it’s done. But the ‘Talented EVRAZ Family’ contest is a great chance to see what others do, learn something new and show yourself.”',
+'All participants and winners of the contest received commemorative gifts and diplomas from the managing director of EVRAZ NTMK.'
+],
+author: 'Tatyana Aleeva'
+};
+const photos = [
+{ file:'28.09.2025', w:1804, h:2400, ru:'28 августа 2025', en:'August 28, 2025', storyRu:'', storyEn:'', ph:'UklGRjQBAABXRUJQVlA4ICgBAADwCgCdASowAEAAPpFAlEmlpKIhPVuYALASCUAXMfmI5gbgBcuQvjojDYTIfrokJO0nQNBLLo9uS22rQGPDe5L5ZNbva2w4zbIX14V/yj3Ouks4FN1aIXbod98r16eT4QAA/vvbmM9UTERcI72UU695TWbKYwXaxdaWoNDIa94b6ntBBtpx5XcXhKrQ3OZoDW9hRJC0XG0hQWvsM8jtyOnvCdFtIq0RKyhiD1smCAixPMLT/s+Ta6oM6k5ZGMarOJoN4tyFOdYiDPQIlU4B+xfJCRyPy0aHAmfVZzhNJalVP5kzLt6/TFixdlC/oCgALXZ15OBmM/5XlLjmREAd6q7lQKH89xdrjZkqNIa1afh+t36d8/0UNMl2emJJ1HsY1v+Bmp2aGAAAAA==' },
+{ file:'8.09.2025', w:2400, h:1598, ru:'8 сентября 2025', en:'September 8, 2025', storyRu:'', storyEn:'', ph:'UklGRoAAAABXRUJQVlA4IHQAAABQBQCdASowACAAPp06l0mloyIhOrzIALATiUAZruuQuhynAX57s7ZNsJEmNkr1zuUrqAAA/vrhrW0u6N+hMV5p9GiJjMz/iCz0jNL4ZQjkDdI6WmE/vpsXWRfwfXPIjwvq2AzsH2x+bidQwmoC/eefAx0gAA==' },
+{ file:'1_5.06.2025', w:1438, h:2160, ru:'5 июня 2025', en:'June 5, 2025', storyRu:'', storyEn:'', ph:'UklGRsAAAABXRUJQVlA4ILQAAABQCACdASowAEgAPrVMnkmnJKKiMR34AOAWiWcAycRH4FyX57PaS/2TKpQ4pEZT76evUqj4WqmfI9UlpwIb1+X2+HpXmLyNlY7iJOAA/vfJW1J+wiX4gLlGnPXgW8E3we4KODxNpSLkVqV8P8DrlM5NBGOxXgNvgkglR0UXU6UlkVKMtXIX7AMfK42UJb4pPfP/qCZ/XHzYalZB65bIH8QyDycWbt0C/BfuK8vfFPHNXv5AAAA=' },
+{ file:'paper_29.12.2011', w:1809, h:2560, ru:'Газета, 29 декабря 2011', en:'Newspaper, December 29, 2011', storyRu:'', storyEn:'', transcript: { ru: PAPER_TEXT, en: PAPER_TEXT_EN }, ph:'UklGRjABAABXRUJQVlA4ICQBAACQCwCdASowAEQAPqlImEmmJKImt3RqANAVCWMAyBgPUSGPpAKXhyQts+SuEjaqCW4mbBmcWnRJncn7prYMj/4qBvrr98gnT9m0D59UeQ/z9Puv55TZnY36xrJL6+F2+jgkOautIAD++Bgt+JBXi3d9jJSGOxqsvqCN/pwJB7Du6IxET4SARol1v3h78vzvbMrYXGqI/AlG43f7+rlZTYktEp1XZiS4aoUxa/BUsl7bXCXPhd90mrp+jPhs1tvWDuJ0VKNRFZTVyckQcIzckaYeMyH157nu3gfGYAWakTDRspa5ySWAI+x7jZS7E440ZXlg6oDJvO8S00oTjZBxXfKut5zbKp/f1IIBli7+kKm9hEnJOAYp8uI4cW0oFcNFrnTGAAAA' },
+{ file:'25.05.2021', w:1064, h:1600, ru:'25 мая 2021', en:'May 25, 2021', storyRu:'', storyEn:'', ph:'UklGRjABAABXRUJQVlA4ICQBAADwCgCdASowAEgAPq1KmUmmJKIhMzjsAMAViUAXZnjIJqJIra69H6Q+RyBB6FGNmWX2lmG6jCU/sNUF10orcoVd5astOg5ERe1qcSRFibjw11FKZwJNtUdSeGeZV3wIwAgA/u7d4V5HZ+WZ6RyoW3VSbhvHir6x6uGVAUlXN1xkMr14+08vJ8CsJU/NQaYFZ0TO44y+/dCJZonOMCeHu5m3bI0i3aX97/bvitSEt00jWAKvsADhfobfPXFOEO5j2FRIXaj/ZK2bcBNl9hwKsgzz0stxes0dU7hJGpD5ZIyd95vjEeVzPRqlGReQG7vG7ehhxHkKlPQz8vBJySLEp4kYCP1xJoit/durt/HLRhX2NseM7G8cS4Ci8UEVgXaIOHLcAAAA' },
+{ file:'27.10.2025', w:1800, h:2400, ru:'27 октября 2025', en:'October 27, 2025', storyRu:'', storyEn:'', ph:'UklGRoQAAABXRUJQVlA4IHgAAAAQBQCdASowAEAAPrVSoU0nJKqiqBVbiVAWiWcA0jQdQIBZAPK3EHdGl6XPy+OVSgAAAP72PEr2PvVqBzQO16VsaSxy/MbAfo9f7gGOxxIXFpcb60RLCs6bgXyFx1dWINITbFM/n0qf7YPXDBa/5aNRogUspQpAAAA=' },
+{ file:'29.07.2025', w:1598, h:2400, ru:'29 июля 2025', en:'July 29, 2025', storyRu:'', storyEn:'', ph:'UklGRtwAAABXRUJQVlA4INAAAACwCACdASowAEgAPrVWoUspJScqKrZrMUAWiWUAvcg1i14NVtW1pojRWNxzQseiy04sPjIAFixLd+V70tLOKvjkXnb5zyzmJgkSfjWjlgAA/u6F3cIgo9qgZG8VCqhZD/vqZdsWp7ZEAcnmjeq7hOFVznH8ic7xb2ghXJYslH0q8AgEqFMueNtynlmg346JTp29wg+ATVbD1qpWbPoDqNoCqWdcsAJj+jfThWRgtz3qxi5CCDMZCdO58uIv7HwsQkMKewvsb7Dpcg7S+GKtwAAA' },
+{ file:'2_5.06.2025', w:1438, h:2160, ru:'Сейм', en:'Seim', storyRu:'', storyEn:'', ph:'UklGRtgAAABXRUJQVlA4IMwAAADwCACdASowAEgAPrVQnkqnJSKhsRYIAOAWiWcACG+mrOGsEWmz7/R2YnEpilPnfP+/tT5io6n1Uv1R7R0CIPKGMjF0G8F7QGDvy0c4AV770AD+9qMjEa7hREyr5PL3Ok2I+VmUw3DBxmwycOvbXSGM/FyZnjkTX6tQ0YddyBZG39B0Qb2scaTcByOxCVQ8Givg/Bq6vr63v7dJuXLsNWPX8jd2PVld2gp4Fcv+7D5oO63B78xkzZ2ZwEF4uFksdaUXNXmAuf/y9VwAAAA=' },
+{ file:'19.06.2024', w:2160, h:1438, ru:'19 июня 2024', en:'June 19, 2024', storyRu:'', storyEn:'', ph:'UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASowACAAPrVIn0mnJCKosBqqqRAWiWMAuwAgTWzekmv3mAD+8fDpxw0cnW5uJOvZmLo71tMJ6H5omDbYiYjDFWVkj/MXtZCcOGUKf69W+CBJ+Uiwfg14wAAA' },
+];
+photos.forEach(p => {
+p.thumb = `img/thumb/${p.file}.avif`;
+p.medium = `img/medium/${p.file}.avif`;
+p.src = `img/full/${p.file}.avif`;
+const k = 1400 / Math.max(p.w, p.h);
+p.mw = Math.round(p.w * k); p.mh = Math.round(p.h * k);
+p.phURL = placeholderURL(p);
+});
+function placeholderURL(p){
+const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${p.mw}' height='${p.mh}' viewBox='0 0 ${p.mw} ${p.mh}'>`
++ `<filter id='b' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='${Math.round(p.mw / 40)}'/>`
++ `<feComponentTransfer><feFuncA type='discrete' tableValues='1 1'/></feComponentTransfer></filter>`
++ `<image width='100%' height='100%' preserveAspectRatio='none' filter='url(#b)' href='data:image/webp;base64,${p.ph}'/></svg>`;
+return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+function bakePlaceholder(p, i){
+const svg = new Image();
+svg.src = p.phURL;
+return svg.decode().then(() => {
+const c = document.createElement('canvas');
+c.width = 480; c.height = Math.round(480 * p.mh / p.mw);
+c.getContext('2d').drawImage(svg, 0, 0, c.width, c.height);
+const jpg = c.toDataURL('image/jpeg', 0.9);
+p.phURL = 'data:image/svg+xml,' + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${p.mw}' height='${p.mh}' viewBox='0 0 ${p.mw} ${p.mh}'>`
++ `<image width='100%' height='100%' preserveAspectRatio='none' href='${jpg}'/></svg>`);
+document.querySelectorAll(`[data-i="${i}"]`).forEach(el => { el.style.backgroundImage = `url("${jpg}")`; });
+}).catch(() => {}); // не вышло — остаётся заглушка с фильтром, она выглядит так же
+}
+const FEATURED_INDEX = 3; // газета, paper_29.12.2011
+const waveColumns = [
+[2, 7, 8], // купол цветной + купол/"Сейм" + лес (перенесён для баланса высоты колонок)
+[4, 6], // объектив в лесу (день) + объектив в лесу (ночь) — одна тема
+[0, 1, 5], // дуэт с жабой, луна, человек под звёздами
+];
+function buildRowMajorOrder(columns) {
+const rows = Math.max(...columns.map(col => col.length));
+const order = [];
+for (let r = 0; r < rows; r++) {
+for (const col of columns) {
+if (col[r] !== undefined) order.push(col[r]);
+}
+}
+return order;
+}
+const viewOrder = [FEATURED_INDEX, ...buildRowMajorOrder(waveColumns)];
+let revealAt = 0;
+function revealImg(img){
+const done = () => {
+const now = performance.now(), at = Math.max(now, revealAt);
+revealAt = at + 120;
+setTimeout(() => img.classList.add('ready'), at - now);
+};
+if (img.decode) img.decode().then(done, done); else done();
+}
+function itemHTML(p, i){
+const cap = currentLang==='ru' ? p.ru : p.en;
+return `<div class="wave-item" data-i="${i}" onclick="openLightbox(${i})" style="background-image:url(&quot;${p.phURL}&quot;)">
+<img src="${p.thumb}" alt="${cap}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async" onload="revealImg(this)" onerror="revealImg(this)">
+<div class="cap">${cap}</div>
+</div>`;
+}
+function renderGrids(){
+const wave = document.getElementById('waveGrid');
+const fp = photos[FEATURED_INDEX];
+const fcap = currentLang==='ru' ? fp.ru : fp.en;
+const glassPhoto = document.getElementById('featuredPhotoGlass');
+glassPhoto.style.backgroundImage = `url("${fp.phURL}")`;
+glassPhoto.dataset.i = FEATURED_INDEX;
+glassPhoto.innerHTML = `<img src="${fp.thumb}" alt="${fcap}" width="${fp.w}" height="${fp.h}" fetchpriority="high" onload="revealImg(this)" onerror="revealImg(this)">`;
+glassPhoto.setAttribute('onclick', `openLightbox(${FEATURED_INDEX})`);
+waveColumns.forEach(colIndices => {
+const col = document.createElement('div');
+col.className = 'wave-col';
+colIndices.forEach(i => col.insertAdjacentHTML('beforeend', itemHTML(photos[i], i)));
+wave.appendChild(col);
+});
+}
+renderGrids();
+photos.forEach(bakePlaceholder);
+function updateGridCaptions(){
+document.querySelectorAll('[data-i]').forEach(el => {
+const p = photos[el.dataset.i], cap = currentLang==='ru' ? p.ru : p.en;
+el.querySelector('img').alt = cap;
+const c = el.querySelector('.cap');
+if (c) c.textContent = cap;
+});
+}
+document.addEventListener('dragstart', e => { if (e.target.closest && e.target.closest('.featured-wrap, .wave-masonry, .lightbox-overlay')) e.preventDefault(); });
+(function initWaveHover(){
+const wave = document.getElementById('waveGrid');
+let hoverOffTimer = null;
+wave.addEventListener('mouseover', e => {
+if (!e.target.closest('.wave-item')) return;
+clearTimeout(hoverOffTimer);
+wave.classList.add('is-hovering');
+});
+wave.addEventListener('mouseout', e => {
+if (!e.target.closest('.wave-item')) return;
+hoverOffTimer = setTimeout(() => wave.classList.remove('is-hovering'), 80);
+});
+})();
+(function initPrefetch(){
+const photoOf = e => { const el = e.target.closest && e.target.closest('.wave-item, .featured-photo'); return el && photos[el.dataset.i]; };
+let timer = null;
+document.addEventListener('mouseover', e => {
+clearTimeout(timer);
+const p = photoOf(e);
+if (p) timer = setTimeout(() => loadImg(p.medium).catch(() => {}), 200);
+});
+document.addEventListener('touchstart', e => {
+const p = photoOf(e);
+if (p) loadImg(p.medium).catch(() => {});
+}, { passive:true });
+})();
+/* ============ ЗАГРУЗКА ФОТО ДЛЯ ПРОСМОТРА ============
+В просмотре сначала видна размытая заглушка (она уже в странице), поверх проявляется фото 1400 px.
+Оригинал грузится, только когда фото приближают. Каждое фото грузится один раз */
+const imgLoads = new Map(), imgLoaded = new Set();
+function loadImg(src){
+if (!imgLoads.has(src)) {
+const im = new Image();
+im.src = src;
+const ready = im.decode ? im.decode() : new Promise((ok, fail) => { im.onload = ok; im.onerror = fail; });
+imgLoads.set(src, ready.then(
+() => { imgLoaded.add(src); },
+e => { imgLoads.delete(src); throw e; } // не загрузилось — при следующей попытке пробуем снова
+));
+}
+return imgLoads.get(src);
+}
+function lbSrcNow(p){ return imgLoaded.has(p.medium) ? p.medium : p.phURL; }
+function upgradeLb(){
+const token = lbAnimToken, p = photos[lbIndex];
+const img = document.getElementById('lbImg');
+if (img.getAttribute('src') === p.medium) { preloadNeighbours(); return; }
+loadImg(p.medium).then(() => {
+if (token !== lbAnimToken) return;
+const wrap = document.getElementById('lbPhotoWrap');
+if (isZoomed()) { img.src = p.medium; upgradeLbFull(); return; }
+const ghost = document.createElement('img');
+ghost.className = 'lb-ghost';
+ghost.alt = '';
+ghost.src = img.getAttribute('src');
+ghost.style.borderRadius = getComputedStyle(img).borderRadius;
+lbCleanup = () => { lbCleanup = null; ghost.remove(); };
+const decoded = el => (el.decode ? el.decode() : Promise.resolve()).catch(() => {});
+decoded(ghost).then(() => {
+if (token !== lbAnimToken) return;
+wrap.insertBefore(ghost, img.nextSibling);
+img.src = p.medium;
+return decoded(img);
+}).then(() => {
+if (token !== lbAnimToken) return;
+requestAnimationFrame(() => requestAnimationFrame(() => {
+if (token !== lbAnimToken) return;
+ghost.style.transition = `opacity ${LB_SHARPEN_MS}ms cubic-bezier(0.22,0.7,0.2,1)`;
+ghost.style.opacity = '0';
+setTimeout(() => { if (token === lbAnimToken && lbCleanup) lbCleanup(); }, LB_SHARPEN_MS + 40);
+preloadNeighbours();
+}));
+});
+}, () => {});
+}
+function preloadNeighbours(){
+const pos = viewOrder.indexOf(lbIndex), n = viewOrder.length;
+const next = photos[viewOrder[(pos + 1) % n]].medium, prev = photos[viewOrder[(pos - 1 + n) % n]].medium;
+loadImg(next).catch(() => {}).then(() => loadImg(prev)).catch(() => {});
+}
+function upgradeLbFull(){
+const i = lbIndex, p = photos[i], img = document.getElementById('lbImg');
+if (img.getAttribute('src') !== p.medium) return;
+loadImg(p.src).then(() => {
+const now = document.getElementById('lbImg');
+if (lbIndex !== i || now.getAttribute('src') !== p.medium || !document.getElementById('lightbox').classList.contains('active')) return;
+now.style.width = now.offsetWidth + 'px';
+now.style.height = now.offsetHeight + 'px';
+now.src = p.src;
+}, () => {});
+}
+function unlockLbSize(){ const img = document.getElementById('lbImg'); img.style.width = ''; img.style.height = ''; }
+let lbIndex = 0;
+let startIndex = null;
+let visitedInSession = null;
+let fullLoopSeen = false;
+function openLightbox(i){
+cancelLbAnim();
+clearTimeout(readResetTimer);
+resetZoom(false);
+setReadOpen(false, true);
+lbIndex = i;
+startIndex = i;
+visitedInSession = new Set([i]);
+fullLoopSeen = false;
+document.getElementById('lightbox').classList.add('active');
+document.getElementById('lightbox').classList.remove('fs-mode');
+document.getElementById('lbInfo').classList.remove('open');
+document.querySelector('.lightbox-panel').classList.remove('info-open');
+const sheet = document.getElementById('lbInfoSheet');
+sheet.classList.remove('resizing');
+sheet.style.height = 'auto';
+updateLightbox();
+document.body.style.overflow = 'hidden';
+}
+function toggleLbInfo(){
+resetZoom(true);
+const open = document.getElementById('lbInfo').classList.toggle('open');
+document.querySelector('.lightbox-panel').classList.toggle('info-open', open);
+if (open) document.getElementById('lightbox').classList.remove('fs-mode');
+}
+function closeLbInfo(){
+document.getElementById('lbInfo').classList.remove('open');
+document.querySelector('.lightbox-panel').classList.remove('info-open');
+}
+function toggleFsMode(){
+resetZoom(true);
+if (document.getElementById('lbInfo').classList.contains('open')) closeLbInfo();
+document.getElementById('lightbox').classList.toggle('fs-mode');
+}
+document.getElementById('lbInfoHandle').addEventListener('click', e => {
+e.stopPropagation();
+toggleLbInfo();
+});
+function updateLightbox(){
+unlockLbSize();
+document.getElementById('lbImg').src = lbSrcNow(photos[lbIndex]);
+applyLbState();
+updateLbText();
+upgradeLb();
+}
+function applyLbState(){
+document.getElementById('lbReadBtn').classList.toggle('gone', !photos[lbIndex].transcript);
+const isSeen = fullLoopSeen && lbIndex === startIndex;
+document.getElementById('lbSeenBadge').classList.toggle('active', isSeen);
+document.querySelector('.lightbox-panel').classList.toggle('seen-glow', isSeen);
+}
+function updateLbText(){
+const p = photos[lbIndex];
+const sheet = document.getElementById('lbInfoSheet');
+const isMobile = window.matchMedia('(max-width:768px)').matches;
+const infoOpen = document.getElementById('lbInfo').classList.contains('open');
+const applyText = () => {
+document.getElementById('lbCaption').textContent = currentLang==='ru' ? p.ru : p.en;
+const story = currentLang==='ru' ? p.storyRu : p.storyEn;
+document.getElementById('lbStory').textContent = story;
+const hasStory = !!story;
+document.querySelector('.lightbox-eyebrow').style.display = hasStory ? '' : 'none';
+document.querySelector('.lightbox-accent').style.display = hasStory ? '' : 'none';
+document.getElementById('lbStory').style.display = hasStory ? '' : 'none';
+};
+if (isMobile && infoOpen) {
+const startH = sheet.getBoundingClientRect().height;
+sheet.style.transition = 'none';
+sheet.style.height = startH + 'px';
+void sheet.offsetHeight; // форсируем reflow, чтобы стартовая высота точно закоммитилась без transition
+sheet.style.transition = '';
+sheet.classList.add('resizing');
+setTimeout(() => {
+applyText();
+requestAnimationFrame(() => {
+const targetH = sheet.scrollHeight;
+sheet.style.height = targetH + 'px';
+setTimeout(() => {
+sheet.classList.remove('resizing');
+}, 220);
+setTimeout(() => {
+sheet.style.height = 'auto';
+}, 440);
+});
+}, 150);
+} else {
+applyText();
+}
+}
+/* ============ СМЕНА ФОТО В ЛАЙТБОКСЕ (вариант A: морф рамки + кроссфейд) ============
+1) берём новое фото, если оно уже загружено, иначе его размытую заглушку (она готова сразу,
+поэтому листание не ждёт интернета) — подпись и фото меняются вместе; настоящее фото проявится потом
+2) старое фото остаётся «призраком» поверх, рамка плавно тянется к размеру нового
+3) фото перетекают друг в друга, подпись гаснет и проявляется в середине */
+const LB_MS = 460, LB_EASE = 'cubic-bezier(0.4,0,0.2,1)';
+const LB_SHARPEN_MS = 1200; // переход из размытой заглушки в чёткое фото
+let lbAnimToken = 0, lbCleanup = null;
+function cancelLbAnim(){
+lbAnimToken++;
+if (lbCleanup) lbCleanup();
+document.getElementById('lbImg').classList.remove('lb-loading');
+}
+function swapLightboxPhoto(){
+const token = ++lbAnimToken;
+const src = lbSrcNow(photos[lbIndex]);
+const wrap = document.getElementById('lbPhotoWrap');
+const img = document.getElementById('lbImg');
+const inner = document.getElementById('lbInfoInner');
+const isMobile = window.matchMedia('(max-width:768px)').matches;
+const infoOpen = document.getElementById('lbInfo').classList.contains('open');
+const loadingTimer = setTimeout(() => { if (token === lbAnimToken) img.classList.add('lb-loading'); }, 200);
+const pre = new Image();
+pre.src = src;
+const preReady = pre.decode ? pre.decode() : new Promise(r => { pre.onload = pre.onerror = r; });
+preReady.catch(() => {}).then(() => {
+clearTimeout(loadingTimer);
+if (token !== lbAnimToken) return;
+if (lbCleanup) lbCleanup();
+img.classList.remove('lb-loading');
+const ownSheetAnim = isMobile && infoOpen;
+if (ownSheetAnim) {
+applyLbState(); updateLbText();
+} else {
+inner.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+inner.style.opacity = '0';
+inner.style.transform = 'translateY(6px)';
+}
+const r0 = wrap.getBoundingClientRect();
+const ghost = document.createElement('img');
+ghost.className = 'lb-ghost';
+ghost.alt = '';
+ghost.src = img.currentSrc || img.src;
+ghost.style.borderRadius = getComputedStyle(img).borderRadius;
+wrap.insertBefore(ghost, img.nextSibling);
+wrap.style.width = r0.width + 'px';
+wrap.style.height = r0.height + 'px';
+wrap.classList.add('lb-animating');
+img.style.transition = 'none';
+img.style.opacity = '0';
+let textTimer = null, endTimer = null, textDone = ownSheetAnim;
+lbCleanup = () => {
+lbCleanup = null;
+clearTimeout(textTimer); clearTimeout(endTimer);
+if (!textDone) { textDone = true; applyLbState(); updateLbText(); }
+ghost.remove();
+wrap.classList.remove('lb-animating');
+wrap.style.transition = ''; wrap.style.width = ''; wrap.style.height = '';
+img.style.transition = ''; img.style.opacity = '';
+inner.style.transition = ''; inner.style.opacity = ''; inner.style.transform = '';
+};
+img.src = src;
+const sameAsPre = img.complete && img.naturalWidth === pre.naturalWidth && img.naturalHeight === pre.naturalHeight;
+const imgReady = sameAsPre || !img.decode ? Promise.resolve() : img.decode();
+imgReady.catch(() => {}).then(() => {
+if (token !== lbAnimToken) return;
+wrap.classList.remove('lb-animating');
+wrap.style.width = ''; wrap.style.height = '';
+const r1 = wrap.getBoundingClientRect();
+wrap.style.width = r0.width + 'px';
+wrap.style.height = r0.height + 'px';
+wrap.classList.add('lb-animating');
+void wrap.offsetWidth;
+wrap.style.transition = `width ${LB_MS}ms ${LB_EASE}, height ${LB_MS}ms ${LB_EASE}`;
+wrap.style.width = r1.width + 'px';
+wrap.style.height = r1.height + 'px';
+img.style.transition = `opacity ${LB_MS}ms ${LB_EASE}`;
+ghost.style.transition = `opacity ${LB_MS}ms ${LB_EASE}`;
+img.style.opacity = '1';
+ghost.style.opacity = '0';
+if (!textDone) textTimer = setTimeout(() => {
+textDone = true;
+applyLbState(); updateLbText();
+inner.style.opacity = '1';
+inner.style.transform = 'none';
+}, 170);
+endTimer = setTimeout(() => { if (lbCleanup) lbCleanup(); upgradeLb(); }, LB_MS + 40);
+});
+});
+}
+/* ============ «ПРОЧИТАТЬ» ============ */
+function renderTranscript(t){
+const box = document.getElementById('lbReadContent');
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+box.textContent = '';
+box.append(el('p', 'lb-read-src', t.source), el('h4', 'lb-read-title', t.title), el('p', 'lb-read-lead', t.lead));
+const body = el('div', 'lb-read-body');
+t.body.forEach(par => {
+const p = el('p');
+(Array.isArray(par) ? par : [par]).forEach(seg => p.append(typeof seg === 'string' ? seg : el('span', 'lb-read-hl', seg.hl)));
+body.append(p);
+});
+box.append(body, el('p', 'lb-read-author', t.author));
+box.scrollTop = 0;
+}
+function setReadOpen(open, instant){
+const panel = document.getElementById('lbRead');
+const btn = document.getElementById('lbReadBtn');
+if (instant) { panel.classList.add('lb-no-anim'); btn.classList.add('lb-no-anim'); }
+const t = photos[lbIndex] && photos[lbIndex].transcript;
+if (open && !t) return;
+if (open) resetZoom(true);
+if (open && !panel.classList.contains('open')) {
+renderTranscript(t[currentLang] || t.ru);
+void panel.offsetHeight; // чтобы строки красиво «проявились», а не появились сразу
+}
+panel.classList.toggle('open', open);
+panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+btn.classList.toggle('open', open);
+btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+const ru = currentLang === 'ru';
+btn.setAttribute('aria-label', open ? (ru ? 'Закрыть текст' : 'Close text') : (ru ? 'Прочитать текст' : 'Read text'));
+btn.title = open ? (ru ? 'Закрыть (R)' : 'Close (R)') : (ru ? 'Прочитать (R)' : 'Read (R)');
+if (instant) {
+void panel.offsetHeight;
+panel.classList.remove('lb-no-anim'); btn.classList.remove('lb-no-anim');
+}
+}
+function toggleRead(){ setReadOpen(!document.getElementById('lbRead').classList.contains('open')); }
+function isReadOpen(){ return document.getElementById('lbRead').classList.contains('open'); }
+/* ============ ЗУМ ФОТО ============
+Компьютер: клик — приблизить в 2.5× (фото следует за мышью), ещё клик — отдалить; колесо — плавный зум.
+Телефон: щипок двумя пальцами, двойной тап, перетаскивание одним пальцем.
+Всё анимируется в одном цикле requestAnimationFrame: масштаб идёт с постоянной скоростью,
+а движение мыши просто меняет «куда смотреть» — поэтому зум не замедляется, если двигать мышь. */
+const ZOOM_CLICK = 2.5, ZOOM_MAX = 4, ZOOM_MS = 350;
+const zoom = {
+s:1, tx:0, ty:0,          // цель
+ds:1, dtx:0, dty:0,       // то, что сейчас на экране
+mode:'mouse', fx:0.5, fy:0.5,
+anim:null, raf:0, last:0,
+pointers:new Map(), pinch:null, pan:null, tap:null, lastTap:null, tapTimer:null
+};
+const lbWrap = () => document.getElementById('lbPhotoWrap');
+const lbImgEl = () => document.getElementById('lbImg');
+const lbEl = () => document.getElementById('lightbox');
+function isZoomed(){ return zoom.s > 1.001; }
+function zoomLimits(sc){
+const w = lbWrap().clientWidth, h = lbWrap().clientHeight;
+return { mx:(sc - 1) * w / 2, my:(sc - 1) * h / 2 };
+}
+function clampT(sc, x, y){
+const L = zoomLimits(sc);
+return [Math.max(-L.mx, Math.min(L.mx, x)), Math.max(-L.my, Math.min(L.my, y))];
+}
+function renderZoom(){
+const img = lbImgEl();
+img.style.transition = 'opacity 0.25s ease';
+img.style.transform = zoom.ds > 1.001 ? `translate(${zoom.dtx}px, ${zoom.dty}px) scale(${zoom.ds})` : '';
+}
+function zoomTick(now){
+zoom.raf = 0;
+const dt = zoom.last ? Math.min(64, now - zoom.last) : 16;
+zoom.last = now;
+let busy = false;
+if (zoom.anim) {
+const a = zoom.anim, pr = Math.min(1, (now - a.start) / ZOOM_MS), e = 1 - Math.pow(1 - pr, 3);
+zoom.ds = a.from + (a.to - a.from) * e;
+if (zoom.mode === 'touch') {
+if (a.anchor) { zoom.dtx = a.anchor.dx - a.anchor.ux * zoom.ds; zoom.dty = a.anchor.dy - a.anchor.uy * zoom.ds; }
+else { zoom.dtx = a.tx0 + (zoom.tx - a.tx0) * e; zoom.dty = a.ty0 + (zoom.ty - a.ty0) * e; }
+[zoom.dtx, zoom.dty] = clampT(zoom.ds, zoom.dtx, zoom.dty);
+}
+if (pr < 1) busy = true; else { zoom.anim = null; zoom.ds = zoom.s; }
+} else if (zoom.mode === 'mouse') {
+const k = 1 - Math.exp(-dt / 70);
+zoom.ds += (zoom.s - zoom.ds) * k;
+if (Math.abs(zoom.s - zoom.ds) > 0.002) busy = true; else zoom.ds = zoom.s;
+} else {
+zoom.ds = zoom.s;
+}
+if (zoom.mode === 'mouse') {
+const L = zoomLimits(zoom.ds);
+const tx = (0.5 - zoom.fx) * 2 * L.mx, ty = (0.5 - zoom.fy) * 2 * L.my;
+if (zoom.anim || busy) { zoom.dtx = tx; zoom.dty = ty; }  // пока меняется масштаб — точка под курсором стоит на месте
+else {
+const k = 1 - Math.exp(-dt / 70);
+zoom.dtx += (tx - zoom.dtx) * k; zoom.dty += (ty - zoom.dty) * k;
+if (Math.abs(tx - zoom.dtx) > 0.3 || Math.abs(ty - zoom.dty) > 0.3) busy = true;
+else { zoom.dtx = tx; zoom.dty = ty; }
+}
+} else if (!zoom.anim) {
+zoom.dtx = zoom.tx; zoom.dty = zoom.ty;
+}
+renderZoom();
+if (busy) zoomKick();
+else {
+zoom.last = 0;
+if (zoom.ds <= 1.001) lbEl().classList.remove('zoom-clip');
+}
+}
+function zoomKick(){ if (!zoom.raf) zoom.raf = requestAnimationFrame(zoomTick); }
+function setZoomed(on){
+lbEl().classList.toggle('zoomed', on);
+if (on) { lbEl().classList.add('zoom-clip'); upgradeLbFull(); }
+}
+function animateZoom(to, anchor){
+const a = { from:zoom.ds, to, start:performance.now(), tx0:zoom.dtx, ty0:zoom.dty };
+if (zoom.mode === 'touch' && anchor) {
+const r = lbWrap().getBoundingClientRect();
+const dx = anchor.x - (r.left + r.width / 2), dy = anchor.y - (r.top + r.height / 2);
+a.anchor = { dx, dy, ux:(dx - zoom.dtx) / zoom.ds, uy:(dy - zoom.dty) / zoom.ds };
+[zoom.tx, zoom.ty] = clampT(to, dx - a.anchor.ux * to, dy - a.anchor.uy * to);
+}
+zoom.s = to;
+if (to <= 1) { zoom.tx = zoom.ty = 0; }
+zoom.anim = a;
+setZoomed(to > 1);
+zoomKick();
+}
+function resetZoom(smooth){
+clearTimeout(zoom.tapTimer);
+zoom.pointers.clear(); zoom.pinch = zoom.pan = zoom.tap = null;
+if (zoom.ds <= 1.001 && zoom.s <= 1.001 && !lbImgEl().style.transform) return;
+if (smooth) { animateZoom(1); return; }
+if (zoom.raf) { cancelAnimationFrame(zoom.raf); zoom.raf = 0; }
+zoom.s = zoom.ds = 1; zoom.tx = zoom.ty = zoom.dtx = zoom.dty = 0; zoom.anim = null; zoom.last = 0;
+renderZoom();
+lbEl().classList.remove('zoomed', 'zoom-clip');
+}
+function setCursorFraction(x, y){
+const r = lbWrap().getBoundingClientRect();
+zoom.fx = Math.max(0, Math.min(1, (x - r.left) / r.width));
+zoom.fy = Math.max(0, Math.min(1, (y - r.top) / r.height));
+}
+function touchTakeOver(){
+zoom.mode = 'touch';
+if (zoom.anim) { zoom.anim = null; zoom.s = zoom.ds; zoom.tx = zoom.dtx; zoom.ty = zoom.dty; }
+}
+function zoomBlocked(e){
+return !lbEl().classList.contains('active')
+|| isReadOpen()
+|| document.getElementById('lbInfo').classList.contains('open')
+|| (e && e.target.closest && e.target.closest('button, .lb-read'));
+}
+(function initZoom(){
+const wrap = lbWrap();
+wrap.addEventListener('pointerdown', e => {
+if (zoomBlocked(e)) return;
+zoom.pointers.set(e.pointerId, { x:e.clientX, y:e.clientY });
+if (e.pointerType === 'mouse') { zoom.tap = { x:e.clientX, y:e.clientY, t:Date.now() }; return; }
+touchTakeOver();
+if (zoom.pointers.size === 2) {
+const [a, b] = [...zoom.pointers.values()];
+zoom.pinch = { d0:Math.hypot(a.x - b.x, a.y - b.y) || 1, s0:zoom.s, mx:(a.x + b.x) / 2, my:(a.y + b.y) / 2 };
+zoom.tap = null; zoom.pan = null;
+} else if (zoom.pointers.size === 1) {
+zoom.pan = { x:e.clientX, y:e.clientY, tx0:zoom.tx, ty0:zoom.ty };
+zoom.tap = { x:e.clientX, y:e.clientY, t:Date.now() };
+}
+});
+document.addEventListener('pointermove', e => {
+if (e.pointerType !== 'mouse' || zoom.mode !== 'mouse') return;
+if (!isZoomed() && !zoom.anim) return;
+if (!lbEl().classList.contains('active')) return;
+setCursorFraction(e.clientX, e.clientY);
+zoomKick();
+});
+wrap.addEventListener('pointermove', e => {
+if (e.pointerType === 'mouse' || !zoom.pointers.has(e.pointerId)) return;
+zoom.pointers.set(e.pointerId, { x:e.clientX, y:e.clientY });
+if (zoom.tap && Math.hypot(e.clientX - zoom.tap.x, e.clientY - zoom.tap.y) > 10) zoom.tap = null;
+const r = wrap.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+if (zoom.pinch && zoom.pointers.size >= 2) {
+const [a, b] = [...zoom.pointers.values()];
+const d = Math.hypot(a.x - b.x, a.y - b.y);
+const newS = Math.max(1, Math.min(ZOOM_MAX, zoom.pinch.s0 * d / zoom.pinch.d0));
+const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+const ux = (zoom.pinch.mx - cx - zoom.tx) / zoom.s, uy = (zoom.pinch.my - cy - zoom.ty) / zoom.s;
+zoom.s = newS;
+[zoom.tx, zoom.ty] = clampT(newS, (mx - cx) - ux * newS, (my - cy) - uy * newS);
+zoom.pinch.mx = mx; zoom.pinch.my = my;
+setZoomed(newS > 1.001);
+zoomKick();
+} else if (zoom.pan && isZoomed()) {
+[zoom.tx, zoom.ty] = clampT(zoom.s, zoom.pan.tx0 + (e.clientX - zoom.pan.x), zoom.pan.ty0 + (e.clientY - zoom.pan.y));
+zoomKick();
+}
+});
+const end = e => {
+if (!zoom.pointers.has(e.pointerId)) return;
+zoom.pointers.delete(e.pointerId);
+const tap = zoom.tap && e.type === 'pointerup' && Date.now() - zoom.tap.t < 350
+&& Math.hypot(e.clientX - zoom.tap.x, e.clientY - zoom.tap.y) < (e.pointerType === 'mouse' ? 6 : 10) ? zoom.tap : null;
+zoom.tap = null;
+if (e.pointerType === 'mouse') {
+if (!tap || e.button !== 0) return;
+zoom.mode = 'mouse';
+setCursorFraction(e.clientX, e.clientY);
+animateZoom(isZoomed() ? 1 : ZOOM_CLICK);
+return;
+}
+if (zoom.pinch && zoom.pointers.size < 2) {
+zoom.pinch = null;
+if (zoom.s < 1.08) { animateZoom(1); }
+const rest = [...zoom.pointers.values()][0];
+zoom.pan = rest ? { x:rest.x, y:rest.y, tx0:zoom.tx, ty0:zoom.ty } : null;
+return;
+}
+if (zoom.pointers.size === 0) zoom.pan = null;
+if (!tap) return;
+const now = Date.now(), last = zoom.lastTap;
+if (last && now - last.t < 300 && Math.hypot(tap.x - last.x, tap.y - last.y) < 40) {
+clearTimeout(zoom.tapTimer); zoom.lastTap = null;
+zoom.mode = 'touch';
+animateZoom(isZoomed() ? 1 : ZOOM_CLICK, tap);
+} else {
+zoom.lastTap = { x:tap.x, y:tap.y, t:now };
+clearTimeout(zoom.tapTimer);
+zoom.tapTimer = setTimeout(() => {
+zoom.lastTap = null;
+if (!isZoomed() && lbEl().classList.contains('fs-mode')) lbEl().classList.remove('fs-mode');
+}, 300);
+}
+};
+wrap.addEventListener('pointerup', end);
+wrap.addEventListener('pointercancel', end);
+wrap.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') zoom.pointers.delete(e.pointerId); });
+wrap.addEventListener('wheel', e => {
+if (zoomBlocked(e)) return;
+e.preventDefault();
+zoom.mode = 'mouse';
+setCursorFraction(e.clientX, e.clientY);
+const k = Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0015));
+const newS = Math.max(1, Math.min(ZOOM_MAX, zoom.s * k));
+if (newS < 1.03) { if (isZoomed()) animateZoom(1); return; }
+zoom.anim = null;
+zoom.s = newS;
+setZoomed(true);
+zoomKick();
+}, { passive:false });
+window.addEventListener('resize', () => { resetZoom(false); unlockLbSize(); });
+})();
+let readResetTimer = null;
+function closeLightbox(){
+clearTimeout(readResetTimer);
+readResetTimer = setTimeout(() => {
+if (!document.getElementById('lightbox').classList.contains('active')) { setReadOpen(false, true); resetZoom(false); }
+}, 400);
+cancelLbAnim();
+document.getElementById('lightbox').classList.remove('active');
+document.body.style.overflow = '';
+}
+function navLightbox(dir){
+resetZoom(false);
+unlockLbSize();
+setReadOpen(false);
+const pos = viewOrder.indexOf(lbIndex);
+const newPos = (pos + dir + viewOrder.length) % viewOrder.length;
+lbIndex = viewOrder[newPos];
+visitedInSession.add(lbIndex);
+if (lbIndex === startIndex && visitedInSession.size === photos.length) {
+fullLoopSeen = true;
+}
+if (!photos[lbIndex].transcript) document.getElementById('lbReadBtn').classList.add('gone');
+swapLightboxPhoto();
+}
+document.getElementById('lightbox').addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+if (!document.getElementById('lightbox').classList.contains('active')) return;
+if (e.key === 'Escape') { if (isZoomed()) resetZoom(true); else if (isReadOpen()) setReadOpen(false); else closeLightbox(); }
+if (e.code === 'KeyR' && !e.ctrlKey && !e.metaKey && !e.altKey && photos[lbIndex].transcript) toggleRead();
+if (e.key === 'ArrowLeft') navLightbox(-1);
+if (e.key === 'ArrowRight') navLightbox(1);
+});
+</script>
+</body>
+</html>
