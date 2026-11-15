@@ -104,9 +104,6 @@
         .link-btn[data-platform=github]:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.45); box-shadow:0 0 22px rgba(255,255,255,0.12),0 6px 20px rgba(0,0,0,0.4); color:#fff; transform:translateY(-3px); }
         .link-btn[data-platform=youtube]:hover { background:rgba(255,0,0,0.07); border-color:rgba(255,60,60,0.5); box-shadow:0 0 22px rgba(255,40,40,0.25),0 6px 20px rgba(255,0,0,0.2); color:#ff8a8a; transform:translateY(-3px); }
         .link-btn:hover svg { opacity:1; }
-        .contact { margin-bottom:14px; color:rgba(255,255,255,0.32); }
-        .contact a { white-space:nowrap; color:rgba(150,240,185,0.85); text-decoration:none; border-bottom:1px solid rgba(150,240,185,0.3); transition:color 0.3s ease,border-color 0.3s ease; }
-        .contact a:hover { color:#fff; border-bottom-color:rgba(255,255,255,0.6); }
 
         footer { text-align:center; padding:80px 20px 60px; color:rgba(255,255,255,0.2); font-size:0.82em; font-weight:300; letter-spacing:1px; }
 
@@ -128,6 +125,51 @@
             h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 50px}
             .photo-wrap{width:180px;height:180px} .menu-items{flex-direction:column;gap:24px} .menu-items a{font-size:1.3em}
         }
+
+        /* ПРОЕКТЫ — бегущая лента */
+        .projects { position:relative; margin:0 0 56px; animation:fadeSlideUp 1s 0.5s ease both; --cw:290px; }
+        .section-title { text-align:center; font-size:0.85em; font-weight:300; letter-spacing:4px; text-transform:uppercase; color:rgba(120,220,160,0.55); margin-bottom:22px; }
+        .proj-track {
+            position:relative; overflow:hidden; padding:16px 0 26px; cursor:grab; touch-action:pan-y;
+            -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+                    mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+        }
+        .proj-track.dragging { cursor:grabbing; }
+        .proj-track.dragging .proj-card { pointer-events:none; }
+        .proj-strip { display:flex; gap:18px; width:max-content; will-change:transform; }
+        .proj-card { flex:0 0 var(--cw); display:block; text-decoration:none; color:inherit; -webkit-user-drag:none; user-select:none; outline:none; }
+        .proj-card.no-link { cursor:inherit; }
+        .proj-inner {
+            position:relative; height:100%; display:flex; flex-direction:column; padding:24px 24px 20px; border-radius:22px;
+            background:linear-gradient(160deg,rgba(255,255,255,0.065),rgba(255,255,255,0.02));
+            border:1px solid rgba(255,255,255,0.09);
+            box-shadow:0 10px 30px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.06);
+            transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.3s ease,box-shadow 0.3s ease;
+        }
+        .proj-inner::before { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+            background:radial-gradient(120% 70% at 0% 0%,var(--c,#5fd08f) 0%,transparent 55%); opacity:0.1; transition:opacity 0.3s ease; }
+        .proj-card:hover .proj-inner, .proj-card:focus-visible .proj-inner {
+            transform:translateY(-6px); border-color:rgba(150,240,185,0.4);
+            box-shadow:0 18px 40px rgba(0,0,0,0.5),0 0 32px rgba(60,200,110,0.12),inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+        .proj-card:hover .proj-inner::before { opacity:0.2; }
+        .proj-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+        .proj-icon { width:44px; height:44px; border-radius:13px; display:grid; place-items:center;
+            background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); color:#d8f5e3; }
+        .proj-icon svg { width:22px; height:22px; }
+        .proj-lang { display:flex; align-items:center; gap:7px; font-size:0.78em; letter-spacing:1px; color:rgba(255,255,255,0.45); }
+        .proj-lang i { width:9px; height:9px; border-radius:50%; background:var(--c); box-shadow:0 0 8px var(--c); }
+        .proj-name { font-size:1.2em; font-weight:400; letter-spacing:1px; color:#f0f0f0; margin-bottom:9px; }
+        .proj-desc { font-size:0.88em; line-height:1.6; color:rgba(255,255,255,0.55); font-weight:300; }
+        .proj-more { display:inline-flex; align-self:flex-start; align-items:center; gap:6px; margin-top:auto; padding-top:16px; font-size:0.8em; letter-spacing:1.5px; text-transform:uppercase; color:rgba(150,240,185,0.75); }
+        .proj-more b { font-weight:400; display:inline-block; transition:transform 0.3s ease; }
+        .proj-card:hover .proj-more b { transform:translateX(4px); }
+        .proj-more.soon { color:rgba(255,255,255,0.35); }
+        .proj-cta { text-align:center; max-width:520px; margin:22px auto 0; padding:0 10px; font-size:0.95em; font-weight:300; letter-spacing:0.5px; line-height:1.7; color:rgba(255,255,255,0.55); }
+        .proj-cta a { display:inline-block; margin-top:6px; color:rgba(150,240,185,0.85); text-decoration:none; border-bottom:1px solid rgba(150,240,185,0.3); transition:color 0.3s ease,border-color 0.3s ease; }
+        .proj-cta a:hover { color:#fff; border-bottom-color:rgba(255,255,255,0.6); }
+        @media (max-width:768px) { .projects{--cw:min(72vw,280px)} .proj-inner{padding:20px 20px 18px} .proj-strip{gap:14px}
+            .proj-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)} }
     </style>
 </head>
 <body>
@@ -156,12 +198,16 @@
                 <p class="card-desc" data-ru="Короче, делаю всякие приколы в сфере музыки, программ и фоток." data-en="Basically, I make all kinds of fun stuff with music, software and photos.">Короче, делаю всякие приколы в сфере музыки, программ и фоток.</p>
             </div>
         </div>
+        <section class="projects" aria-roledescription="carousel" aria-label="Projects">
+            <h2 class="section-title" data-ru="Проекты" data-en="Projects">Проекты</h2>
+            <div class="proj-track" id="projTrack"><div class="proj-strip" id="projStrip"></div></div>
+            <p class="proj-cta"><span data-ru="У вас есть проблема, которую вам нужно решить? Напишите мне на почту, может найдём решение вместе)" data-en="Got a problem you need solved? Drop me an email, maybe we'll find a solution together)">У вас есть проблема, которую вам нужно решить? Напишите мне на почту, может найдём решение вместе)</span><br><a href="mailto:contact@slava-gusak.ru">contact@slava-gusak.ru</a></p>
+        </section>
         <div class="links">
             <a href="https://github.com/Slava-Gusak" class="link-btn" data-platform="github" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg> GitHub</a>
             <a href="https://www.youtube.com/@slava_gusak_yup" class="link-btn" data-platform="youtube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg> YouTube</a>
         </div>
         <footer>
-            <p class="contact"><span data-ru="Для сотрудничества:" data-en="Business inquiries:">Для сотрудничества:</span> <a href="mailto:contact@slava-gusak.ru">contact@slava-gusak.ru</a></p>
             <p class="copyright" onclick="toggleHiddenSocials()">© 2026 Slava_Gusak</p>
             <div class="hidden-socials" id="hiddenSocials"><div class="social-links-row"><a href="https://twitter.com/GooseSvyatoslav" class="social-link" data-social="twitter" target="_blank" rel="noopener" title="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="https://t.me/Slava_Gusak" class="social-link" data-social="telegram" target="_blank" rel="noopener" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg></a></div></div>
         </footer>
@@ -172,6 +218,124 @@
         function toggleHiddenSocials(){if(++clickCount===3){const t=document.getElementById('hiddenSocials'),opening=!t.classList.contains('show');t.classList.toggle('show');if(opening){t.addEventListener('transitionend',function e(n){if(n.propertyName==='max-height'){t.classList.add('expanded');t.removeEventListener('transitionend',e)}})}else{t.classList.remove('expanded')}clickCount=0}clearTimeout(clickTimer);clickTimer=setTimeout(()=>{clickCount=0},1000)}
         let currentLang='ru';
         function switchLanguage(){const nl=currentLang==='ru'?'en':'ru';document.getElementById('langBtn').textContent=nl==='ru'?'EN':'RU';document.querySelectorAll('[data-ru][data-en]').forEach(el=>el.textContent=nl==='ru'?el.getAttribute('data-ru'):el.getAttribute('data-en'));currentLang=nl}
+
+        // ПРОЕКТЫ — данные (ru/en руками, чтобы переключатель языка работал)
+        // repo: имя репозитория у Slava-Gusak или полная ссылка; null — карточка без ссылки
+        const PROJECTS=[
+            {repo:'nitro-control',name:'Nitro Control',lang:'Rust',c:'#dea584',icon:'fan',
+             ru:'Облегчённая альтернатива фирменного приложения для управления вентиляторами моего ноутбука. Без лишних анимаций и настроек аудио (мне нужно управлять вентиляторами, а не переключаться между аудио пресетами).',
+             en:'A lightweight alternative to the stock app for controlling my laptop\'s fans. No pointless animations or audio settings (I need to control fans, not switch between sound presets).'},
+            {repo:'https://github.com/LiteLaunch/litelaunch',name:'Lite Launch',lang:'Rust',c:'#dea584',icon:'key',
+             ru:'Альтернатива моему любимому Flow Launcher, но написанная на Rust, поэтому ест в 20 раз меньше оперативки.',
+             en:'An alternative to my favourite Flow Launcher, but written in Rust, so it eats 20 times less RAM.'},
+            {repo:'claude-watch',name:'Claude Watch',lang:'Kotlin',c:'#a97bff',icon:'watch',
+             ru:'Представьте: вы идёте по улице и важно смотрите на часы. Прохожие думают, что вы крайне занятой человек, судя по тому, с каким лицом вы смотрите на оставшиеся лимиты.',
+             en:'Picture this: you walk down the street, glancing at your watch with importance. Passers-by think you\'re an extremely busy person, judging by the look on your face as you check your remaining limits.'},
+            {repo:'yad-flow-plugin',name:'YaD for Flow',lang:'Python',c:'#4b8bd6',icon:'down',
+             ru:'Плагин для моего любимого Flow Launcher: качает музло с Яндекс Музыки прямо из лаунчера. Кстати, в Lite Launch он тоже работает)',
+             en:'A plugin for my favourite Flow Launcher: grabs music from Yandex Music right from the launcher. By the way, it works in Lite Launch too)'},
+            {repo:'Smart-Link',name:'Smart-Link',lang:'HTML',c:'#e8673f',icon:'link',
+             ru:'Альтернатива страничкам, что делают band.link или Linktree, только без трекеров и прочей фигни (я просто знаю, что никто не заходит на мой сайт).',
+             en:'An alternative to the pages band.link or Linktree make, just without trackers and other junk (I simply know nobody visits my site).'}
+        ];
+        const PROJ_ICONS={
+            fan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c0-4 1-7 4-7 2 0 3 2 2 4l-4 4M14 12c4 0 7 1 7 4 0 2-2 3-4 2l-4-4M12 14c0 4-1 7-4 7-2 0-3-2-2-4l4-4M10 12c-4 0-7-1-7-4 0-2 2-3 4-2l4 4"/></svg>',
+            key:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M6.5 17.5h11"/><path d="M9.5 12.5l5-5M10.5 7.5h4v4"/></svg>',
+            watch:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="4"/><path d="M9 6l1-3h4l1 3M9 18l1 3h4l1-3M12 9.5V12l1.5 1.5"/></svg>',
+            down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
+            link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>'
+        };
+        (function initProjects(){
+            const track=document.getElementById('projTrack'),strip=document.getElementById('projStrip');
+            if(!track) return;
+            const L=(ru,en)=>currentLang==='en'?en:ru;
+            const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+            const card=p=>{
+                const tag=p.repo?'a':'div';
+                const attrs=p.repo?' href="'+(p.repo.startsWith('http')?p.repo:'https://github.com/Slava-Gusak/'+p.repo)+'" target="_blank" rel="noopener" draggable="false"':'';
+                const more=p.repo
+                    ?'<span class="proj-more"><span data-ru="Открыть на GitHub" data-en="Open on GitHub">'+L('Открыть на GitHub','Open on GitHub')+'</span><b>→</b></span>'
+                    :'<span class="proj-more soon"><span data-ru="Скоро на GitHub" data-en="Coming to GitHub">'+L('Скоро на GitHub','Coming to GitHub')+'</span></span>';
+                return '<'+tag+' class="proj-card'+(p.repo?'':' no-link')+'"'+attrs+' style="--c:'+p.c+'">'+
+                    '<div class="proj-inner"><div class="proj-head"><div class="proj-icon">'+PROJ_ICONS[p.icon]+'</div>'+
+                    '<span class="proj-lang"><i></i>'+p.lang+'</span></div>'+
+                    '<div class="proj-name">'+esc(p.name)+'</div>'+
+                    '<p class="proj-desc" data-ru="'+esc(p.ru)+'" data-en="'+esc(p.en)+'">'+esc(L(p.ru,p.en))+'</p>'+more+
+                    '</div></'+tag+'>';
+            };
+            const one=PROJECTS.map(card).join('');
+            strip.innerHTML=one;
+            // копий ленты столько, чтобы она всегда перекрывала экран — тогда шов не виден
+            let setW=0;
+            function fill(){
+                strip.innerHTML=one;
+                const gap=parseFloat(getComputedStyle(strip).columnGap)||0;
+                setW=strip.scrollWidth+gap;
+                const copies=Math.max(2,Math.ceil(track.clientWidth/setW)+1);
+                strip.innerHTML=one.repeat(copies);
+                [...strip.children].forEach((c,i)=>{if(i>=PROJECTS.length){c.setAttribute('aria-hidden','true');c.tabIndex=-1}});
+                strip.querySelectorAll('[data-ru][data-en]').forEach(el=>el.textContent=el.getAttribute(currentLang==='en'?'data-en':'data-ru'));
+            }
+            fill();
+
+            const SPEED=32;                       // px в секунду
+            let x=0,v=SPEED,target=v,last=performance.now(),hover=false,visible=true;
+            const wrap=()=>{x=((x%setW)+setW)%setW};
+            function frame(now){
+                const dt=Math.min(0.05,(now-last)/1000);last=now;
+                v+=(target-v)*Math.min(1,dt*4);    // скорость меняется плавно: лента мягко тормозит и разгоняется
+                if(!drag.on){x+=v*dt;wrap()}
+                strip.style.transform='translate3d('+(-x).toFixed(2)+'px,0,0)';
+                raf=requestAnimationFrame(frame);
+            }
+            let raf=null;
+            function run(){ if(raf===null&&visible&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame)} }
+            function stop(){ if(raf!==null){cancelAnimationFrame(raf);raf=null} }
+            const updTarget=()=>{target=(hover||drag.on)?0:SPEED};
+
+            // наведение — лента плавно замирает, карточка приподнимается
+            track.addEventListener('mouseenter',()=>{hover=true;updTarget()});
+            track.addEventListener('mouseleave',()=>{hover=false;updTarget()});
+            track.addEventListener('focusin',()=>{hover=true;updTarget()});
+            track.addEventListener('focusout',()=>{hover=false;updTarget()});
+
+            // перетаскивание мышью и пальцем (вертикальный скролл страницы не мешает — touch-action:pan-y)
+            const drag={on:false,moved:false,sx:0,x0:0,id:null,lx:0,lt:0,vel:0};
+            track.addEventListener('pointerdown',e=>{
+                if(e.pointerType==='mouse'&&e.button!==0) return;
+                drag.on=true;drag.moved=false;drag.sx=e.clientX;drag.x0=x;drag.id=e.pointerId;drag.lx=e.clientX;drag.lt=performance.now();drag.vel=0;updTarget();
+            });
+            window.addEventListener('pointermove',e=>{
+                if(!drag.on||e.pointerId!==drag.id) return;
+                const dx=e.clientX-drag.sx;
+                if(!drag.moved&&Math.abs(dx)>6){drag.moved=true;track.classList.add('dragging');try{track.setPointerCapture(drag.id)}catch(_){}}
+                if(drag.moved){
+                    x=drag.x0-dx;wrap();
+                    const t=performance.now(),dt=(t-drag.lt)/1000;
+                    if(dt>0){drag.vel=-(e.clientX-drag.lx)/dt;drag.lx=e.clientX;drag.lt=t}
+                }
+            });
+            const end=e=>{
+                if(!drag.on||(e&&e.pointerId!==drag.id)) return;
+                drag.on=false;track.classList.remove('dragging');
+                if(drag.moved){
+                    v=Math.max(-1500,Math.min(1500,drag.vel));   // отпустил — лента катится по инерции и возвращается к своему темпу
+                    const stopClick=ev=>{ev.preventDefault();ev.stopPropagation()};
+                    track.addEventListener('click',stopClick,{capture:true,once:true});
+                    setTimeout(()=>track.removeEventListener('click',stopClick,{capture:true}),0);
+                }
+                if(e&&e.pointerType!=='mouse') hover=false;
+                updTarget();
+            };
+            window.addEventListener('pointerup',end);
+            window.addEventListener('pointercancel',end);
+            track.addEventListener('click',e=>{const c=e.target.closest('.no-link');if(c)e.preventDefault()});
+
+            document.addEventListener('visibilitychange',()=>document.hidden?stop():run());
+            if('IntersectionObserver' in window) new IntersectionObserver(es=>{visible=es[0].isIntersecting;visible?run():stop()}).observe(track);
+            let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{const k=x/setW;fill();x=k*setW;wrap()},150)});
+            run();
+        })();
     </script>
 </body>
 </html>
