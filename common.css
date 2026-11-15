@@ -1,0 +1,38 @@
+/* Общие стили всех страниц slava-gusak.ru.
+   Цвета каждой страницы (фон, шары, фон меню, скроллбар) остаются в самих страницах. */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* Зернистый шум поверх фона — готовая PNG-плитка вместо SVG-фильтра feTurbulence,
+   который браузер генерировал на лету */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;
+  background-image:url("data:image/png;base64,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");background-size:64px 64px}
+
+/* Светящиеся шары. Раньше — filter:blur(90px): огромное размытие телефон пересчитывал
+   постоянно, особенно пока шары проявлялись. Теперь мягкий край рисует маска
+   (ступени подобраны под профиль того самого размытия). На телефоне — тусклее,
+   как раньше brightness(.5). */
+:root{--orb-mask-full:radial-gradient(closest-side,rgba(0,0,0,1) 0%,rgba(0,0,0,0.96) 12%,rgba(0,0,0,0.9) 25%,rgba(0,0,0,0.78) 37%,rgba(0,0,0,0.58) 50%,rgba(0,0,0,0.35) 62%,rgba(0,0,0,0.17) 75%,rgba(0,0,0,0.06) 87%,transparent 100%);--orb-mask-dim:radial-gradient(closest-side,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.29) 12%,rgba(0,0,0,0.25) 25%,rgba(0,0,0,0.19) 37%,rgba(0,0,0,0.13) 50%,rgba(0,0,0,0.08) 62%,rgba(0,0,0,0.04) 75%,rgba(0,0,0,0.02) 87%,transparent 100%)}
+.glow-orb{position:fixed;border-radius:50%;opacity:0;pointer-events:none;z-index:0;
+  box-sizing:content-box;padding:180px;margin:-180px;
+  -webkit-mask-image:var(--orb-mask,var(--orb-mask-full));mask-image:var(--orb-mask,var(--orb-mask-full))}
+@media (max-width:768px){.glow-orb{--orb-mask:var(--orb-mask-dim)}}
+
+/* Кнопки меню и языка */
+.menu-btn,.lang-btn{-webkit-tap-highlight-color:transparent}
+.menu-btn:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.12);transform:scale(1.05)}
+.menu-btn:focus-visible,.lang-btn:focus-visible{outline:2px solid rgba(255,255,255,.5);outline-offset:3px}
+.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Выезжающее меню */
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:98;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+.menu-overlay.active{opacity:1;visibility:visible}
+.menu.active{top:0}
+.menu-items a{font-size:1.4em;font-weight:300;letter-spacing:3px;color:#c8c8c8;text-decoration:none;text-transform:uppercase;transition:color .3s ease;position:relative}
+.menu-items a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:rgba(255,255,255,.4);transition:width .3s ease}
+.menu-items a:hover{color:#fff}
+.menu-items a:hover::after{width:100%}
+.menu-items a.active{color:#fff}
+.menu-items a.active::after{width:100%;background:rgba(255,255,255,.6)}
+@media (max-width:768px){.menu-items a{font-size:1.3em}}

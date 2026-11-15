@@ -13,76 +13,55 @@
     <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="preload" as="image" href="img/me.avif" fetchpriority="high">
-    <style>
+    <link rel="stylesheet" href="common.css">
+<style>
         html { overscroll-behavior:none; scrollbar-color:rgba(63,174,108,0.4) transparent; }
-        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
             color:#e0e0e0; min-height:100vh; overflow-x:hidden;
             position:relative; overscroll-behavior:none;
             background:linear-gradient(135deg,rgb(3,14,8) 0%,rgb(8,22,13) 50%,rgb(2,10,5) 100%) fixed #030d08;
         }
-        body::before {
-            content:''; position:fixed; inset:0; z-index:0;
-            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-            background-size:200px 200px; opacity:0.04; pointer-events:none;
-        }
         body::after {
             content:''; position:fixed; inset:0; z-index:0;
             background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.5) 100%);
             pointer-events:none;
-        }
-        .glow-orb { position:fixed; border-radius:50%; filter:blur(90px); opacity:0; pointer-events:none; z-index:0; animation:orbIn 2s ease forwards; }
+        }.glow-orb{animation:orbIn 2s ease forwards}
         @keyframes orbIn { to{opacity:1} }
         .glow-orb-1 { width:clamp(260px,55vw,550px); height:clamp(260px,55vw,550px); top:-120px; right:-100px; background:rgba(20,90,50,0.4); }
         .glow-orb-2 { width:clamp(210px,45vw,450px); height:clamp(210px,45vw,450px); bottom:-100px; left:-80px; background:rgba(10,60,35,0.35); }
-        @media (max-width:768px) {
-            .glow-orb { filter:blur(90px) brightness(0.5); }
-        }
         .container { max-width:850px; margin:0 auto; padding:40px 20px; position:relative; z-index:1; }
 
         /* КНОПКИ */
         .lang-btn {
             position:fixed; top:64px; right:20px; z-index:100;
-            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
             background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
             color:#fff; width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
             font-size:0.85em; font-weight:300; letter-spacing:1px;
-            transition:all 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
+            transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
             box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
         }
         .lang-btn:hover { border-color:rgba(255,255,255,0.2); transform:scale(1.05); background:rgba(255,255,255,0.12); }
         .menu-btn {
             position:fixed; top:20px; right:20px; z-index:100;
-            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
             background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
             width:60px; height:36px; border-radius:15px; cursor:pointer;
             display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
-            transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+            transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
             box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
         }
-        .menu-btn:hover { border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.12); transform:scale(1.05); }
-        .menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
+        .menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
         .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-        .menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-        .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-        .menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:98; opacity:0; visibility:hidden; transition:all 0.3s ease; }
-        .menu-overlay.active { opacity:1; visibility:visible; }
         .menu {
             position:fixed; top:-100%; left:0; width:100%;
-            backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+            backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
             background:rgba(3,12,6,0.92); border-bottom:1px solid rgba(255,255,255,0.08);
             box-shadow:0 8px 32px rgba(0,0,0,0.5); z-index:99;
             transition:top 0.4s cubic-bezier(0.4,0,0.2,1); padding:28px 40px 30px;
         }
-        .menu.active { top:0; }
         .menu-items { list-style:none; display:flex; justify-content:center; align-items:center; gap:60px; }
-        .menu-items a { font-size:1.4em; font-weight:300; letter-spacing:3px; color:#c8c8c8; text-decoration:none; text-transform:uppercase; transition:color 0.3s ease; position:relative; }
-        .menu-items a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:rgba(255,255,255,0.4); transition:width 0.3s ease; }
-        .menu-items a:hover { color:#fff; }
-        .menu-items a:hover::after { width:100%; }
-        .menu-items a.active { color:#fff; }
-        .menu-items a.active::after { width:100%; background:rgba(255,255,255,0.6); }
 
         @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
         @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
@@ -113,7 +92,7 @@
         .hidden-socials.show { max-height:100px; opacity:1; margin-top:30px; }
         .hidden-socials.expanded { overflow:visible; }
         .social-links-row { display:flex; gap:20px; justify-content:center; }
-        .social-link { display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); transition:all 0.4s cubic-bezier(0.4,0,0.2,1); position:relative; will-change:transform; }
+        .social-link { display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),border-color 0.4s cubic-bezier(0.4,0,0.2,1),box-shadow 0.4s cubic-bezier(0.4,0,0.2,1); position:relative; will-change:transform; }
         .social-link::before { content:''; position:absolute; inset:0; border-radius:50%; opacity:0; transition:opacity 0.4s ease; }
         .social-link[data-social=twitter]::before { background:radial-gradient(circle,rgba(29,161,242,0.3),transparent 70%); }
         .social-link[data-social=telegram]::before { background:radial-gradient(circle,rgba(0,136,204,0.3),transparent 70%); }
@@ -123,7 +102,9 @@
         .social-link:hover svg { fill:#fff; }
         @media (max-width:768px) {
             h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 50px}
-            .photo-wrap{width:180px;height:180px} .menu-items{flex-direction:column;gap:24px} .menu-items a{font-size:1.3em}
+            .photo-wrap{width:180px;height:180px} .menu-items{flex-direction:column;gap:24px}
+            .projects{--cw:min(72vw,280px)} .proj-inner{padding:20px 20px 18px} .proj-strip{gap:14px}
+            .proj-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
         }
 
         /* ПРОЕКТЫ — бегущая лента */
@@ -168,15 +149,13 @@
         .proj-cta { text-align:center; max-width:520px; margin:22px auto 0; padding:0 10px; font-size:0.95em; font-weight:300; letter-spacing:0.5px; line-height:1.7; color:rgba(255,255,255,0.55); }
         .proj-cta a { display:inline-block; margin-top:6px; color:rgba(150,240,185,0.85); text-decoration:none; border-bottom:1px solid rgba(150,240,185,0.3); transition:color 0.3s ease,border-color 0.3s ease; }
         .proj-cta a:hover { color:#fff; border-bottom-color:rgba(255,255,255,0.6); }
-        @media (max-width:768px) { .projects{--cw:min(72vw,280px)} .proj-inner{padding:20px 20px 18px} .proj-strip{gap:14px}
-            .proj-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)} }
     </style>
 </head>
 <body>
     <div class="glow-orb glow-orb-1" id="orb1"></div>
     <div class="glow-orb glow-orb-2" id="orb2"></div>
     <button class="lang-btn" id="langBtn" onclick="switchLanguage()">EN</button>
-    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
     <nav class="menu" id="mainMenu">
         <ul class="menu-items">
@@ -213,7 +192,7 @@
         </footer>
     </div>
     <script>
-        function toggleMenu(){document.getElementById('mainMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');document.getElementById('menuBtn').classList.toggle('open')}
+        
         let clickCount=0,clickTimer=null;
         function toggleHiddenSocials(){if(++clickCount===3){const t=document.getElementById('hiddenSocials'),opening=!t.classList.contains('show');t.classList.toggle('show');if(opening){t.addEventListener('transitionend',function e(n){if(n.propertyName==='max-height'){t.classList.add('expanded');t.removeEventListener('transitionend',e)}})}else{t.classList.remove('expanded')}clickCount=0}clearTimeout(clickTimer);clickTimer=setTimeout(()=>{clickCount=0},1000)}
         let currentLang='ru';
@@ -337,5 +316,6 @@
             run();
         })();
     </script>
+<script src="common.js" defer></script>
 </body>
 </html>

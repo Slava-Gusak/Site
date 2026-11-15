@@ -8,71 +8,53 @@
 <link rel="icon" href="/gallery/favicon.svg?v=3" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/gallery/apple-touch-icon.png?v=3">
 <link rel="preload" as="image" href="img/thumb/paper_29.12.2011.avif" type="image/avif" fetchpriority="high">
+<link rel="stylesheet" href="../common.css">
 <style>
 html { overscroll-behavior:none; scrollbar-color:rgba(255,190,90,0.4) transparent; }
-* { margin:0; padding:0; box-sizing:border-box; }
 body {
 font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 color:#e0e0e0; min-height:100vh; overflow-x:hidden;
 position:relative; overscroll-behavior:none;
 background:#1a1006;
 }
-body::before {
-content:''; position:fixed; inset:0; z-index:0;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-background-size:200px 200px; opacity:0.04; pointer-events:none;
-}
 body::after {
 content:''; position:fixed; inset:0; z-index:0;
 background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.5) 100%);
 pointer-events:none;
 }
-.glow-orb { position:fixed; border-radius:50%; filter:blur(90px); opacity:0; pointer-events:none; z-index:0; }
 .glow-orb-1 { width:clamp(260px,55vw,550px); height:clamp(260px,55vw,550px); top:-120px; right:-100px; }
 .glow-orb-2 { width:clamp(210px,45vw,450px); height:clamp(210px,45vw,450px); bottom:-100px; left:-80px; }
-@media (max-width:768px) { .glow-orb { filter:blur(90px) brightness(0.5); } }
+
 .container { max-width:1000px; margin:0 auto; padding:40px 20px; position:relative; z-index:1; }
 .lang-btn {
 position:fixed; top:64px; right:20px; z-index:100;
-backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
 background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
 color:#fff; width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
 font-size:0.85em; font-weight:300; letter-spacing:1px;
-transition:all 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
+transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); text-transform:uppercase;
 box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
 }
 .lang-btn:hover { border-color:rgba(255,255,255,0.2); transform:scale(1.05); background:rgba(255,255,255,0.12); }
 .menu-btn {
 position:fixed; top:20px; right:20px; z-index:100;
-backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
 background:rgba(255,255,255,0.07); border:2px solid rgba(255,255,255,0.1);
 width:60px; height:36px; padding:0; border-radius:15px; cursor:pointer;
 display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
-transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
 box-shadow:0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.07);
 }
-.menu-btn:hover { border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.12); transform:scale(1.05); }
-.menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
+.menu-btn span { width:20px; height:2px; background:#fff; border-radius:2px; transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),background-color 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); opacity:0.85; }
 .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:98; opacity:0; visibility:hidden; transition:all 0.3s ease; }
-.menu-overlay.active { opacity:1; visibility:visible; }
 .menu {
 position:fixed; top:-100%; left:0; width:100%;
-backdrop-filter:blur(40px) saturate(200%); -webkit-backdrop-filter:blur(40px) saturate(200%);
+backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%);
 background:rgba(18,10,3,0.92); border-bottom:1px solid rgba(255,255,255,0.08);
 box-shadow:0 8px 32px rgba(0,0,0,0.5); z-index:99;
 transition:top 0.4s cubic-bezier(0.4,0,0.2,1); padding:28px 40px 30px;
 }
-.menu.active { top:0; }
 .menu-items { list-style:none; display:flex; justify-content:center; align-items:center; gap:60px; }
-.menu-items a { font-size:1.4em; font-weight:300; letter-spacing:3px; color:#c8c8c8; text-decoration:none; text-transform:uppercase; transition:color 0.3s ease; position:relative; }
-.menu-items a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:rgba(255,255,255,0.4); transition:width 0.3s ease; }
-.menu-items a:hover { color:#fff; }
-.menu-items a:hover::after { width:100%; }
-.menu-items a.active { color:#fff; }
-.menu-items a.active::after { width:100%; background:rgba(255,255,255,0.6); }
 .menu-item-with-sub { position:relative; }
 .menu-item-soon { position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; }
 .menu-item-with-sub > a.no-underline::after { display:none; }
@@ -457,7 +439,7 @@ transition:opacity 1s ease;
 background:linear-gradient(to bottom, transparent 0, rgba(60,30,4,0.25) 30%, rgba(90,45,6,0.5) 60%, rgba(120,60,8,0.8) 100%);
 }
 body.gradient-active .bottom-glow { opacity:1; }
-@media (max-width:768px) { h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 40px} .menu-items{flex-direction:column;gap:24px} .menu-items a{font-size:1.3em} .submenu-link.submenu-link{font-size:0.93em} .menu-item-with-sub{margin-bottom:14px} }
+@media (max-width:768px) { h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 40px} .menu-items{flex-direction:column;gap:24px} .submenu-link.submenu-link{font-size:0.93em} .menu-item-with-sub{margin-bottom:14px} }
 </style>
 </head>
 <body>
@@ -465,7 +447,7 @@ body.gradient-active .bottom-glow { opacity:1; }
 <div class="glow-orb glow-orb-2" id="orb2"></div>
 <div class="bottom-glow" aria-hidden="true"></div>
 <button class="lang-btn" id="langBtn" onclick="switchLanguage()">EN</button>
-<button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
+<button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
 <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <nav class="menu" id="mainMenu">
 <ul class="menu-items">
@@ -625,7 +607,7 @@ document.addEventListener('touchend', release);
 document.addEventListener('touchcancel', release);
 home.addEventListener('contextmenu', e => e.preventDefault());
 })();
-function toggleMenu(){document.getElementById('mainMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');document.getElementById('menuBtn').classList.toggle('open')}
+
 let currentLang='ru';
 function switchLanguage(){
 const nl=currentLang==='ru'?'en':'ru';
@@ -1342,5 +1324,6 @@ if (e.key === 'ArrowLeft') navLightbox(-1);
 if (e.key === 'ArrowRight') navLightbox(1);
 });
 </script>
+<script src="../common.js" defer></script>
 </body>
 </html>
