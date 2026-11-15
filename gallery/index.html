@@ -691,18 +691,27 @@ const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${p.mw}' height='${p
 return 'data:image/svg+xml,' + encodeURIComponent(svg);
 }
 function bakePlaceholder(p, i){
-const svg = new Image();
-svg.src = p.phURL;
-return svg.decode().then(() => {
+// Крошечное превью рисуем на canvas напрямую и размываем фильтром самого canvas.
+// Раньше рисовали SVG со вложенной картинкой — Firefox подгружает такие вложения
+// асинхронно и запекал пустоту: вместо заглушки был чёрный прямоугольник.
+const src = new Image();
+src.src = 'data:image/webp;base64,' + p.ph;
+return (src.decode ? src.decode() : new Promise((ok, no) => { src.onload = ok; src.onerror = no; })).then(() => {
 const c = document.createElement('canvas');
 c.width = 480; c.height = Math.round(480 * p.mh / p.mw);
-c.getContext('2d').drawImage(svg, 0, 0, c.width, c.height);
+const ctx = c.getContext('2d');
+ctx.imageSmoothingQuality = 'high';
+ctx.drawImage(src, 0, 0, c.width, c.height);      // основа: непрозрачная до самых краёв
+if ('filter' in ctx) {                            // то же размытие, что у SVG-заглушки (σ = ширина/40)
+ctx.filter = 'blur(12px)';
+ctx.drawImage(src, 0, 0, c.width, c.height);
+ctx.filter = 'none';
+}
 const jpg = c.toDataURL('image/jpeg', 0.9);
 p.phURL = 'data:image/svg+xml,' + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${p.mw}' height='${p.mh}' viewBox='0 0 ${p.mw} ${p.mh}'>`
 + `<image width='100%' height='100%' preserveAspectRatio='none' href='${jpg}'/></svg>`);
-// Новый фон сначала декодируем, и кладём его слоем ПОВЕРХ старой заглушки: если браузер
-// ещё не успел его отрисовать, виден прежний слой, а не пустота (раньше на этом моргало).
-// Если само фото уже показано — фон под ним не трогаем вовсе.
+// Новый фон сначала декодируем и кладём слоем ПОВЕРХ старой заглушки — без пустого кадра.
+// Если само фото уже показано — фон под ним не трогаем.
 const pre = new Image(); pre.src = jpg;
 return (pre.decode ? pre.decode() : Promise.resolve()).catch(() => {}).then(() => {
 document.querySelectorAll(`[data-i="${i}"]`).forEach(el => {
@@ -735,7 +744,9 @@ function revealImg(img){
 const done = () => {
 const now = performance.now(), at = Math.max(now, revealAt);
 revealAt = at + 120;
-setTimeout(() => img.classList.add('ready'), at - now);
+// кадр ожидания + чтение стиля: иначе Firefox, если фото пришло мгновенно,
+// ставит .ready раньше первой отрисовки и плавное проявление пропускается
+setTimeout(() => requestAnimationFrame(() => { getComputedStyle(img).opacity; img.classList.add('ready'); }), at - now);
 };
 if (img.decode) img.decode().then(done, done); else done();
 }
