@@ -700,7 +700,17 @@ c.getContext('2d').drawImage(svg, 0, 0, c.width, c.height);
 const jpg = c.toDataURL('image/jpeg', 0.9);
 p.phURL = 'data:image/svg+xml,' + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${p.mw}' height='${p.mh}' viewBox='0 0 ${p.mw} ${p.mh}'>`
 + `<image width='100%' height='100%' preserveAspectRatio='none' href='${jpg}'/></svg>`);
-document.querySelectorAll(`[data-i="${i}"]`).forEach(el => { el.style.backgroundImage = `url("${jpg}")`; });
+// Новый фон сначала декодируем, и кладём его слоем ПОВЕРХ старой заглушки: если браузер
+// ещё не успел его отрисовать, виден прежний слой, а не пустота (раньше на этом моргало).
+// Если само фото уже показано — фон под ним не трогаем вовсе.
+const pre = new Image(); pre.src = jpg;
+return (pre.decode ? pre.decode() : Promise.resolve()).catch(() => {}).then(() => {
+document.querySelectorAll(`[data-i="${i}"]`).forEach(el => {
+const im = el.querySelector('img');
+if (im && im.classList.contains('ready')) return;
+el.style.backgroundImage = `url("${jpg}"), ${el.style.backgroundImage}`;
+});
+});
 }).catch(() => {}); // не вышло — остаётся заглушка с фильтром, она выглядит так же
 }
 const FEATURED_INDEX = 3; // газета, paper_29.12.2011
