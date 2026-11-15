@@ -468,7 +468,7 @@ body.gradient-active .bottom-glow { opacity:1; }
 <div class="featured-wrap">
 <div class="hint-label-wrap">
 <div id="featureGlass">
-<div class="featured-photo" id="featuredPhotoGlass"></div>
+<div class="featured-photo" id="featuredPhotoGlass" style="background-image:url(&quot;data:image/webp;base64,UklGRjABAABXRUJQVlA4ICQBAACQCwCdASowAEQAPqlImEmmJKImt3RqANAVCWMAyBgPUSGPpAKXhyQts+SuEjaqCW4mbBmcWnRJncn7prYMj/4qBvrr98gnT9m0D59UeQ/z9Puv55TZnY36xrJL6+F2+jgkOautIAD++Bgt+JBXi3d9jJSGOxqsvqCN/pwJB7Du6IxET4SARol1v3h78vzvbMrYXGqI/AlG43f7+rlZTYktEp1XZiS4aoUxa/BUsl7bXCXPhd90mrp+jPhs1tvWDuJ0VKNRFZTVyckQcIzckaYeMyH157nu3gfGYAWakTDRspa5ySWAI+x7jZS7E440ZXlg6oDJvO8S00oTjZBxXfKut5zbKp/f1IIBli7+kKm9hEnJOAYp8uI4cW0oFcNFrnTGAAAA&quot;)"></div>
 </div>
 <p class="hint-label" data-ru="Нажми на фото, чтобы приблизить" data-en="Click a photo to zoom in">Нажми на фото, чтобы приблизить</p>
 </div>
@@ -762,7 +762,8 @@ const wave = document.getElementById('waveGrid');
 const fp = photos[FEATURED_INDEX];
 const fcap = currentLang==='ru' ? fp.ru : fp.en;
 const glassPhoto = document.getElementById('featuredPhotoGlass');
-glassPhoto.style.backgroundImage = `url("${fp.phURL}")`;
+// заглушка-превью уже стоит прямо в HTML (видна с первой отрисовки, без скрипта) — кладём размытую поверх, не убирая её
+glassPhoto.style.backgroundImage = `url("${fp.phURL}")` + (glassPhoto.style.backgroundImage ? ', ' + glassPhoto.style.backgroundImage : '');
 glassPhoto.dataset.i = FEATURED_INDEX;
 glassPhoto.innerHTML = `<img src="${fp.thumb}" alt="${fcap}" width="${fp.w}" height="${fp.h}" fetchpriority="high" onload="revealImg(this)" onerror="revealImg(this)">`;
 glassPhoto.setAttribute('onclick', `openLightbox(${FEATURED_INDEX})`);
