@@ -103,8 +103,6 @@
         @media (max-width:768px) {
             h1{font-size:2.8em;letter-spacing:4px} header{padding:70px 20px 50px}
             .photo-wrap{width:180px;height:180px} .menu-items{flex-direction:column;gap:24px}
-            .projects{--cw:min(72vw,280px)} .proj-inner{padding:20px 20px 18px} .proj-strip{gap:14px}
-            .proj-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
         }
 
         /* ПРОЕКТЫ — бегущая лента */
@@ -149,6 +147,11 @@
         .proj-cta { text-align:center; max-width:520px; margin:22px auto 0; padding:0 10px; font-size:0.95em; font-weight:300; letter-spacing:0.5px; line-height:1.7; color:rgba(255,255,255,0.55); }
         .proj-cta a { display:inline-block; margin-top:6px; color:rgba(150,240,185,0.85); text-decoration:none; border-bottom:1px solid rgba(150,240,185,0.3); transition:color 0.3s ease,border-color 0.3s ease; }
         .proj-cta a:hover { color:#fff; border-bottom-color:rgba(255,255,255,0.6); }
+        /* мобильная лента — обязательно ПОСЛЕ основных правил ленты, иначе они её перебивают */
+        @media (max-width:768px) {
+            .projects{--cw:min(72vw,280px)} .proj-inner{padding:20px 20px 18px} .proj-strip{gap:14px}
+            .proj-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+        }
     </style>
 </head>
 <body>
@@ -247,9 +250,10 @@
             // копий ленты столько, чтобы она всегда перекрывала экран — тогда шов не виден
             let setW=0;
             function fill(){
-                strip.innerHTML=one;
-                const gap=parseFloat(getComputedStyle(strip).columnGap)||0;
-                setW=strip.scrollWidth+gap;
+                // длина одного набора = расстояние между первой карточкой и её копией.
+                // scrollWidth для этого не годится: Firefox считает ширину ленты по тексту карточек без переносов (~1000px на карточку)
+                strip.innerHTML=one+one;
+                setW=strip.children[PROJECTS.length].getBoundingClientRect().left-strip.children[0].getBoundingClientRect().left;
                 const copies=Math.max(2,Math.ceil(track.clientWidth/setW)+1);
                 strip.innerHTML=one.repeat(copies);
                 [...strip.children].forEach((c,i)=>{if(i>=PROJECTS.length){c.setAttribute('aria-hidden','true');c.tabIndex=-1}});
@@ -258,7 +262,7 @@
             fill();
 
             const SPEED=32;                       // px в секунду
-            let x=0,v=SPEED,target=v,last=performance.now(),hover=false,visible=true;
+            let x=0,v=SPEED,target=v,last=performance.now(),hover=false,focused=false,visible=true;
             const wrap=()=>{x=((x%setW)+setW)%setW};
             function frame(now){
                 const dt=Math.min(0.05,(now-last)/1000);last=now;
@@ -270,13 +274,15 @@
             let raf=null;
             function run(){ if(raf===null&&visible&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame)} }
             function stop(){ if(raf!==null){cancelAnimationFrame(raf);raf=null} }
-            const updTarget=()=>{target=(hover||drag.on)?0:SPEED};
+            const updTarget=()=>{target=(hover||focused||drag.on)?0:SPEED};
 
-            // наведение — лента плавно замирает, карточка приподнимается
-            track.addEventListener('mouseenter',()=>{hover=true;updTarget()});
-            track.addEventListener('mouseleave',()=>{hover=false;updTarget()});
-            track.addEventListener('focusin',()=>{hover=true;updTarget()});
-            track.addEventListener('focusout',()=>{hover=false;updTarget()});
+            // наведение настоящей мышью — лента плавно замирает, карточка приподнимается.
+            // Тап пальцем шлёт фальшивый mouseenter без mouseleave, поэтому смотрим только pointerType=mouse.
+            track.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hover=true;updTarget()}});
+            track.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hover=false;updTarget()}});
+            // фокус останавливает ленту только при навигации с клавиатуры (Tab), а не после клика или тапа по карточке
+            track.addEventListener('focusin',e=>{focused=e.target.matches(':focus-visible');updTarget()});
+            track.addEventListener('focusout',()=>{focused=false;updTarget()});
 
             // перетаскивание мышью и пальцем (вертикальный скролл страницы не мешает — touch-action:pan-y)
             const drag={on:false,moved:false,sx:0,x0:0,id:null,lx:0,lt:0,vel:0};
